@@ -1,0 +1,230 @@
+/* =========================================================
+   TBAG — vehicle cards, specs, feature chips, toolbar, zoom
+   Load AFTER style.css:  <link rel="stylesheet" href="vehicle-extras.css">
+   ========================================================= */
+
+[hidden] { display: none !important; }
+
+/* ---------- toolbar (search + sort) ---------- */
+.vehicle-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    max-width: 900px;
+    margin: 0 auto 1rem;
+    padding: 0 1rem;
+}
+.vehicle-toolbar input,
+.vehicle-toolbar select {
+    flex: 1 1 200px;
+    min-height: 44px;
+    padding: 0 14px;
+    border-radius: 12px;
+    border: 1px solid var(--glass-border);
+    background: var(--glass-bg);
+    color: var(--text-light);
+    font: inherit;
+}
+.vehicle-toolbar select { flex: 0 1 220px; }
+.vehicle-toolbar select option { color: #111; }
+.vehicle-toolbar input::placeholder { color: rgba(255,255,255,.5); }
+.vehicle-toolbar input:focus,
+.vehicle-toolbar select:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 1px;
+}
+#results-count {
+    text-align: center;
+    margin: 0 0 1rem;
+    font-size: .85rem;
+    color: rgba(255,255,255,.6);
+}
+.filter-sep {
+    width: 1px;
+    align-self: stretch;
+    background: var(--glass-border);
+    margin: 0 4px;
+}
+.filter-count {
+    margin-left: 6px;
+    padding: 1px 7px;
+    border-radius: 999px;
+    font-size: .7rem;
+    background: rgba(255,255,255,.14);
+}
+.filter-btn.active .filter-count { background: rgba(0,0,0,.25); }
+
+/* ---------- gallery ---------- */
+.vehicle-gallery { position: relative; overflow: hidden; }
+.photo-count {
+    position: absolute; top: 10px; right: 10px; z-index: 10;
+    padding: 4px 10px; border-radius: 999px;
+    font-size: .72rem; font-weight: 600;
+    background: rgba(0,0,0,.55);
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+}
+.gallery-arrow {
+    position: absolute; top: 50%; z-index: 10;
+    transform: translateY(-50%);
+    width: 36px; height: 36px; padding: 0;
+    border: 0; border-radius: 50%;
+    font-size: 1.5rem; line-height: 1;
+    color: #fff; background: rgba(0,0,0,.45);
+    cursor: pointer;
+}
+.gallery-arrow.prev { left: 8px; }
+.gallery-arrow.next { right: 8px; }
+.gallery-arrow:hover { background: rgba(0,0,0,.7); }
+.image-nav {
+    position: absolute; bottom: 10px; left: 0; right: 0; z-index: 10;
+    display: flex; justify-content: center; gap: 6px;
+    pointer-events: none;
+}
+.dot-btn {
+    pointer-events: auto;
+    width: 8px; height: 8px; padding: 0;
+    border: 0; border-radius: 999px;
+    background: rgba(255,255,255,.45);
+    cursor: pointer;
+    transition: width .25s, background .25s;
+}
+.dot-btn.active { width: 20px; background: var(--primary-color); }
+.vehicle-images img { cursor: zoom-in; }
+.vehicle-card.is-sold .vehicle-images img { filter: grayscale(.85) brightness(.6); }
+
+/* ---------- price ---------- */
+.vehicle-price {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 10px;
+    margin: .5rem 0 1rem;
+}
+.price-amount {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.55rem; font-weight: 700;
+    color: var(--primary-color);
+}
+.pill-negotiable {
+    padding: 3px 10px; border-radius: 999px;
+    font-size: .72rem; font-weight: 700;
+    letter-spacing: .03em; text-transform: uppercase;
+    color: var(--secondary-color);
+    border: 1px solid var(--secondary-color);
+}
+
+/* ---------- spec tiles ---------- */
+.spec-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    margin-bottom: 1rem;
+}
+.spec {
+    display: flex; align-items: center; gap: 10px;
+    padding: 9px 11px;
+    border-radius: 12px;
+    border: 1px solid var(--glass-border);
+    background: var(--glass-bg);
+    min-width: 0;
+}
+.spec-icon { font-size: 1.15rem; flex: none; }
+.spec-text { display: flex; flex-direction: column; min-width: 0; }
+.spec-label {
+    font-size: .62rem; letter-spacing: .08em; text-transform: uppercase;
+    color: rgba(255,255,255,.5);
+}
+.spec-value {
+    font-size: .88rem; font-weight: 600; color: #fff;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+
+/* ---------- feature chips ---------- */
+.feature-block { margin-bottom: 1.1rem; }
+.feature-title {
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 8px;
+    font-size: .68rem; font-weight: 700;
+    letter-spacing: .1em; text-transform: uppercase;
+    color: rgba(255,255,255,.6);
+}
+.feature-title::after {
+    content: ''; flex: 1; height: 1px;
+    background: linear-gradient(90deg, var(--glass-border), transparent);
+}
+.feature-title .feature-total {
+    order: 2; padding: 1px 8px; border-radius: 999px;
+    background: rgba(195,176,145,.2); color: var(--primary-color);
+}
+.feature-list { display: flex; flex-wrap: wrap; gap: 8px; }
+.feature-chip {
+    display: inline-flex; align-items: center; gap: 7px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    border: 1px solid var(--glass-border);
+    background: var(--glass-bg);
+    font-size: .8rem; line-height: 1.2;
+    color: #fff;
+}
+.feature-chip .ficon { font-size: .95rem; }
+.feature-toggle {
+    margin-top: 8px; padding: 5px 14px;
+    border-radius: 999px;
+    border: 1px dashed var(--primary-color);
+    background: transparent; color: var(--primary-color);
+    font: inherit; font-size: .78rem; font-weight: 600;
+    cursor: pointer;
+}
+.feature-toggle:hover { background: rgba(195,176,145,.12); }
+.feature-empty { font-size: .8rem; color: rgba(255,255,255,.5); }
+
+/* ---------- actions ---------- */
+.vehicle-actions { display: flex; gap: 10px; }
+.action-btn {
+    flex: 1; display: flex; align-items: center; justify-content: center;
+    min-height: 46px; padding: 0 14px;
+    border-radius: 12px;
+    font-weight: 700; text-decoration: none;
+    transition: transform .15s, filter .15s;
+}
+.action-btn:hover { transform: translateY(-1px); filter: brightness(1.1); }
+.action-btn.whatsapp { flex: 2; background: #25D366; color: #052e16; }
+.action-btn.call { border: 1px solid var(--primary-color); color: var(--primary-color); }
+
+/* ---------- empty / error ---------- */
+.empty-state { grid-column: 1 / -1; width: 100%; text-align: center; padding: 2rem 1rem; }
+.empty-state p { color: rgba(255,255,255,.7); margin-bottom: 1rem; }
+
+/* ---------- floating WhatsApp ---------- */
+.wa-float {
+    position: fixed; z-index: 9000;
+    right: 16px; bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+    width: 56px; height: 56px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    background: #25D366; color: #fff;
+    box-shadow: 0 8px 24px rgba(0,0,0,.45);
+}
+.wa-float svg { width: 30px; height: 30px; fill: currentColor; }
+
+/* ---------- zoom controls ---------- */
+.zoom-close, .zoom-nav {
+    position: fixed; z-index: 100000;
+    border: 0; border-radius: 50%;
+    background: rgba(255,255,255,.14); color: #fff;
+    cursor: pointer;
+}
+.zoom-close { top: 14px; right: 14px; width: 44px; height: 44px; font-size: 1.8rem; line-height: 1; }
+.zoom-nav { top: 50%; transform: translateY(-50%); width: 44px; height: 44px; font-size: 1.8rem; line-height: 1; }
+.zoom-prev { left: 10px; }
+.zoom-next { right: 10px; }
+.zoom-counter {
+    position: fixed; bottom: 18px; left: 50%; transform: translateX(-50%);
+    z-index: 100000; font-size: .85rem; color: rgba(255,255,255,.8);
+}
+
+/* ---------- bigger screens ---------- */
+@media (min-width: 480px) {
+    .spec-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* odd spec tile on the 2-column mobile grid fills the row */
+@media (max-width: 479px) {
+    .spec:last-child:nth-child(odd) { grid-column: 1 / -1; }
+}
