@@ -1,6 +1,7 @@
 name: Convert vehicles
 
 on:
+  workflow_dispatch:
   push:
     paths:
       - 'vehicles.raw.json'
