@@ -11,7 +11,9 @@ const PLACEHOLDER =
     '<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500"><rect width="100%" height="100%" fill="#14141a"/><text x="50%" y="50%" fill="#777" font-family="sans-serif" font-size="28" text-anchor="middle">Photo unavailable</text></svg>'
   );
 
-const state = { all: [], status: 'available', fuel: 'all', query: '', sort: 'default' };
+const BLANK = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==';
+const PAGE_SIZE = 12;
+const state = { limit: PAGE_SIZE, all: [], status: 'available', fuel: 'all', query: '', sort: 'default' };
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const scrollBehavior = reduceMotion ? 'auto' : 'smooth';
 
@@ -61,6 +63,8 @@ function specsFor(v) {
     ['🔧', 'Engine', v.engine_cc && v.engine_cc.toLocaleString('en-KE') + ' cc'],
     ['🛣️', 'Mileage', v.mileage_km && v.mileage_km.toLocaleString('en-KE') + ' km'],
     ['⚙️', 'Gearbox', v.transmission],
+    ['🛞', 'Drive', v.drive],
+    ['💺', 'Seats', v.seats && v.seats + ' seats'],
     ['⛽', 'Fuel', v.fuel],
     ['🚙', 'Body', v.body],
     ['⭐', 'Condition', v.condition],
@@ -105,6 +109,16 @@ function buildFeatures(v) {
   return block;
 }
 
+/* ---------- technical specs (collapsible key/value list) ---------- */
+function buildTech(v) {
+  const entries = Object.entries(v.specs || {});
+  if (!entries.length) return null;
+  return el('details', { class: 'tech-specs' },
+    el('summary', { text: 'Technical specs' }),
+    el('dl', {}, entries.map(([k, val]) =>
+      el('div', { class: 'tech-row' }, el('dt', { text: k }), el('dd', { text: String(val) })))));
+}
+
 /* ---------- gallery ---------- */
 function buildGallery(v) {
   const imgs = v.images || [];
@@ -112,7 +126,10 @@ function buildGallery(v) {
   const track = el('div', { class: 'vehicle-images', 'data-vehicle-id': v.id, tabindex: '0',
     'aria-label': `${v.name} photos` },
     imgs.map((src, i) => el('img', {
-      src, alt: `${v.name} – photo ${i + 1} of ${imgs.length}`, class: 'zoomable',
+      // only photo 1 downloads up front; the rest wait for the first touch/hover
+      src: i === 0 ? src : BLANK,
+      'data-src': i === 0 ? null : src,
+      alt: `${v.name} – photo ${i + 1} of ${imgs.length}`, class: 'zoomable',
       loading: 'lazy', decoding: 'async', 'data-index': i,
     })));
   const gallery = el('div', { class: 'vehicle-gallery' },
@@ -155,7 +172,8 @@ function buildCard(v) {
     ? el('div', { class: 'sold-container' }, el('div', { class: 'sold-marquee', text: 'SOLD — UNIT UNAVAILABLE — SOLD' }))
     : el('div', { class: 'vehicle-price' },
         el('span', { class: 'price-amount', text: v.price ? money(v.price) : 'Call for price' }),
-        v.negotiable && el('span', { class: 'pill-negotiable', text: 'Negotiable' }));
+        v.negotiable && el('span', { class: 'pill-negotiable', text: 'Negotiable' }),
+        v.price_note && el('span', { class: 'price-note', text: v.price_note }));
 
   return el('article', { class: 'vehicle-card' + (sold ? ' is-sold' : ''), 'data-id': v.id },
     buildGallery(v),
@@ -164,6 +182,8 @@ function buildCard(v) {
       priceBlock,
       buildSpecs(v),
       buildFeatures(v),
+      buildTech(v),
+      v.note && el('div', { class: 'vehicle-note', text: 'ℹ️ ' + v.note }),
       buildActions(v)));
 }
 
@@ -191,6 +211,15 @@ function visibleVehicles() {
   return list;
 }
 
+function hydrate(track) {
+  track.querySelectorAll('img[data-src]').forEach(img => {
+    img.src = img.dataset.src;
+    img.removeAttribute('data-src');
+  });
+}
+
+function resetAndRender() { state.limit = PAGE_SIZE; render(); }
+
 function render() {
   const container = document.getElementById('vehicle-cards-container');
   if (!container) return;
@@ -202,11 +231,16 @@ function render() {
       el('button', { type: 'button', class: 'button', id: 'reset-filters', text: 'Reset filters' })));
   } else {
     const frag = document.createDocumentFragment();
-    list.forEach(v => frag.append(buildCard(v)));
+    list.slice(0, state.limit).forEach(v => frag.append(buildCard(v)));
+    if (list.length > state.limit) {
+      frag.append(el('div', { class: 'load-more-wrap' },
+        el('button', { type: 'button', class: 'button', id: 'load-more',
+          text: `Show more (${list.length - state.limit} left)` })));
+    }
     container.append(frag);
   }
   const count = document.getElementById('results-count');
-  if (count) count.textContent = `Showing ${list.length} vehicle${list.length === 1 ? '' : 's'}`;
+  if (count) count.textContent = `Showing ${Math.min(list.length, state.limit)} of ${list.length} vehicle${list.length === 1 ? '' : 's'}`;
 }
 
 function updateStats() {
@@ -241,7 +275,7 @@ function setupControls() {
     btn.addEventListener('click', () => {
       state[btn.dataset.group] = btn.dataset.value;
       updateFilterButtons();
-      render();
+      resetAndRender();
     }));
 
   const search = document.getElementById('vehicle-search');
@@ -249,11 +283,11 @@ function setupControls() {
     let t;
     search.addEventListener('input', () => {
       clearTimeout(t);
-      t = setTimeout(() => { state.query = search.value; render(); }, 150);
+      t = setTimeout(() => { state.query = search.value; resetAndRender(); }, 150);
     });
   }
   const sort = document.getElementById('vehicle-sort');
-  if (sort) sort.addEventListener('change', () => { state.sort = sort.value; render(); });
+  if (sort) sort.addEventListener('change', () => { state.sort = sort.value; resetAndRender(); });
 
   const container = document.getElementById('vehicle-cards-container');
 
@@ -264,8 +298,9 @@ function setupControls() {
       Object.assign(state, { status: 'all', fuel: 'all', query: '', sort: 'default' });
       if (search) search.value = '';
       if (sort) sort.value = 'default';
-      updateFilterButtons(); render(); return;
+      updateFilterButtons(); resetAndRender(); return;
     }
+    if (t.closest('#load-more')) { state.limit += PAGE_SIZE; render(); return; }
     const toggle = t.closest('.feature-toggle');
     if (toggle) {
       const block = toggle.closest('.feature-block');
@@ -288,9 +323,14 @@ function setupControls() {
     } else if (t.closest('.dot-btn')) {
       track.scrollTo({ left: Number(t.closest('.dot-btn').dataset.index) * w, behavior: scrollBehavior });
     } else if (t.matches('img.zoomable')) {
+      hydrate(track);
       openZoom([...track.children].map(i => i.getAttribute('src')), Number(t.dataset.index));
     }
   });
+
+  // first touch / hover / focus on a gallery loads that card's remaining photos
+  const wake = e => { const g = e.target.closest && e.target.closest('.vehicle-gallery'); if (g) hydrate(g.querySelector('.vehicle-images')); };
+  ['pointerover', 'touchstart', 'focusin'].forEach(ev => container.addEventListener(ev, wake, { passive: true }));
 
   // scroll doesn't bubble -> capture; keep counter + dots in sync
   let raf;
