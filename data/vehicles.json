@@ -1,10 +1,10 @@
 [
   {
     "id": "v0068",
-    "name": "Toyota Fielder 1500cc KDA",
+    "name": "Toyota Fielder 1500cc",
     "make": "Toyota",
     "model": "Fielder",
-    "body": "Hatchback",
+    "body": "Station Wagon",
     "fuel": "Hybrid",
     "status": "available",
     "price": 1850000,
@@ -12,10 +12,10 @@
     "condition": "Fresh Import",
     "year": 2020,
     "engine_cc": 1500,
+    "drive": "2WD",
     "features": [
       "Accident Free",
       "Original Paint",
-      "2WD",
       "Trade-In Accepted",
       "Ready Documents"
     ],
@@ -33,26 +33,26 @@
       "images/vehicle70-plate.jpg"
     ],
     "contact_phone": "+254 757 782887",
-    "contact_email": "cyrusmaina075@gmail.com"
+    "contact_email": "tbagdealers@gmail.com"
   },
   {
     "id": "v0067",
-    "name": "Toyota Wish 1800cc KDA",
+    "name": "Toyota Wish 1800cc",
     "make": "Toyota",
     "model": "Wish",
-    "body": "Hatchback",
+    "body": "Minivan",
     "fuel": "Petrol",
     "status": "sold",
     "negotiable": false,
     "condition": "Mint Condition",
     "year": 2013,
     "engine_cc": 1800,
+    "drive": "2WD",
+    "seats": 7,
     "features": [
-      "2WD",
-      "Valve Matic",
+      "Valvematic Engine",
       "Accident Free",
-      "Original Paint",
-      "7 Seater"
+      "Original Paint"
     ],
     "images": [
       "images/vehicle69-exterior-face.jpg",
@@ -62,35 +62,36 @@
       "images/vehicle69-engine1.jpg",
       "images/vehicle69-exterior-front.jpg",
       "images/vehicle69-exterior-side.jpg",
-      "images/vehicle69-exterior-side.jpg",
       "images/vehicle69-exterior-back.jpg",
       "images/vehicle69-trunck.jpg",
       "images/vehicle69-plate.jpg"
     ],
     "contact_phone": "+254 757 782887",
-    "contact_email": "cyrusmaina075@gmail.com"
+    "contact_email": "tbagdealers@gmail.com"
   },
   {
     "id": "v0066",
-    "name": "Honda Vezel 1496cc KDR",
+    "name": "Honda Vezel 1496cc",
     "make": "Honda",
     "model": "Vezel",
-    "body": "Hatchback",
-    "fuel": "Hybrid Z",
+    "body": "SUV",
+    "fuel": "Hybrid",
     "status": "sold",
     "negotiable": false,
     "condition": "Used",
     "engine_cc": 1496,
     "transmission": "CVT",
-    "features": [
-      "Acceleration: 0-100kph/8.5s",
-      "Fuel Consumption: 4.8L/100Kms",
-      "Engine Oil Capacity: 3.6L",
-      "Model Code: DAA-RU3",
-      "Fabric/Leather Upholstery",
-      "CO2 Emissions: 112g/km",
-      "Fuel Tank Capacity: 40L"
-    ],
+    "features": [],
+    "specs": {
+      "Grade": "Hybrid Z",
+      "Acceleration (0–100 km/h)": "8.5 s",
+      "Fuel Consumption": "4.8 L/100 km",
+      "Engine Oil Capacity": "3.6 L",
+      "Model Code": "DAA-RU3",
+      "Upholstery": "Fabric/Leather",
+      "CO₂ Emissions": "112 g/km",
+      "Fuel Tank Capacity": "40 L"
+    },
     "images": [
       "images/vehicle68-exterior-face.jpg",
       "images/vehicle68-interior1.jpg",
@@ -101,14 +102,14 @@
       "images/vehicle68-plate.jpg"
     ],
     "contact_phone": "+254 757 782887",
-    "contact_email": "cyrusmaina075@gmail.com"
+    "contact_email": "tbagdealers@gmail.com"
   },
   {
     "id": "v0065",
-    "name": "Toyota Fielder 1500cc KCQ",
+    "name": "Toyota Fielder 1500cc",
     "make": "Toyota",
     "model": "Fielder",
-    "body": "Hatchback",
+    "body": "Station Wagon",
     "fuel": "Petrol",
     "status": "available",
     "price": 1080000,
@@ -116,8 +117,8 @@
     "condition": "Mint Condition",
     "year": 2011,
     "engine_cc": 1500,
+    "drive": "AWD",
     "features": [
-      "AWD",
       "Accident Free",
       "Buy & Drive"
     ],
@@ -132,23 +133,24 @@
       "images/vehicle67-plate.jpg"
     ],
     "contact_phone": "+254 757 782887",
-    "contact_email": "cyrusmaina075@gmail.com"
+    "contact_email": "tbagdealers@gmail.com"
   },
   {
     "id": "v0064",
     "name": "Toyota DX102 1500cc",
     "make": "Toyota",
-    "model": "Dx",
+    "model": "DX102",
     "body": "Hatchback",
     "fuel": "Diesel",
     "status": "available",
     "price": 420000,
     "negotiable": true,
-    "condition": "Well Maintained",
+    "condition": "Used",
     "engine_cc": 1500,
     "transmission": "Automatic",
     "features": [
-      "Leaf Spring"
+      "Leaf Spring",
+      "Well Maintained"
     ],
     "images": [
       "images/vehicle66-exterior-face.jpg",
@@ -160,29 +162,28 @@
       "images/vehicle66-plate.jpg"
     ],
     "contact_phone": "+254 757 782887",
-    "contact_email": "cyrusmaina075@gmail.com"
+    "contact_email": "tbagdealers@gmail.com"
   },
   {
     "id": "v0063",
-    "name": "Toyota Fortuner 2019 TurboCharged KDV",
+    "name": "Toyota Fortuner 2019 Turbocharged",
     "make": "Toyota",
     "model": "Fortuner",
-    "body": "Hatchback",
+    "body": "SUV",
     "fuel": "Diesel",
     "status": "available",
     "price": 5600000,
     "negotiable": true,
     "condition": "Used",
     "year": 2019,
+    "drive": "4WD",
+    "seats": 7,
     "features": [
-      "4WD",
       "Parking Sensors",
       "Reverse Camera",
       "Steering Controls",
       "Cruise Control",
-      "Push to Start",
-      "7 Seater",
-      "Turbocharged"
+      "Push To Start"
     ],
     "images": [
       "images/vehicle65-exterior-face.jpg",
@@ -205,14 +206,14 @@
       "images/vehicle65-exterior-back.jpg"
     ],
     "contact_phone": "+254 757 782887",
-    "contact_email": "cyrusmaina075@gmail.com"
+    "contact_email": "tbagdealers@gmail.com"
   },
   {
     "id": "v0062",
-    "name": "Mazda CX5 2000cc KDS",
+    "name": "Mazda CX5 2000cc",
     "make": "Mazda",
     "model": "CX5",
-    "body": "Hatchback",
+    "body": "SUV",
     "fuel": "Petrol",
     "status": "sold",
     "negotiable": false,
@@ -238,11 +239,11 @@
       "images/vehicle64-plate.jpg"
     ],
     "contact_phone": "+254 757 782887",
-    "contact_email": "cyrusmaina075@gmail.com"
+    "contact_email": "tbagdealers@gmail.com"
   },
   {
     "id": "v0061",
-    "name": "Toyota Axio 2014 1500cc KDD",
+    "name": "Toyota Axio 2014 1500cc",
     "make": "Toyota",
     "model": "Axio",
     "body": "Hatchback",
@@ -252,8 +253,8 @@
     "condition": "Used",
     "year": 2014,
     "engine_cc": 1500,
+    "drive": "2WD",
     "features": [
-      "2WD",
       "Accident Free",
       "Original Paint",
       "Trade-In Accepted",
@@ -275,22 +276,22 @@
       "images/vehicle63-plate.jpg"
     ],
     "contact_phone": "+254 757 782887",
-    "contact_email": "cyrusmaina075@gmail.com"
+    "contact_email": "tbagdealers@gmail.com"
   },
   {
     "id": "v0060",
-    "name": "Toyota Fielder 1500cc KDR",
+    "name": "Toyota Fielder 1500cc",
     "make": "Toyota",
     "model": "Fielder",
-    "body": "Hatchback",
+    "body": "Station Wagon",
     "fuel": "Petrol",
     "status": "available",
     "price": 1680000,
     "negotiable": true,
     "condition": "Mint Condition",
     "engine_cc": 1500,
+    "drive": "2WD",
     "features": [
-      "2WD",
       "Original Paint",
       "Accident Free",
       "Buy & Drive"
@@ -307,26 +308,28 @@
       "images/vehicle62-plate.jpg"
     ],
     "contact_phone": "+254 757 782887",
-    "contact_email": "cyrusmaina075@gmail.com"
+    "contact_email": "tbagdealers@gmail.com"
   },
   {
     "id": "v0059",
     "name": "Toyota Fielder 2016 1500cc",
     "make": "Toyota",
     "model": "Fielder",
-    "body": "Hatchback",
+    "body": "Station Wagon",
     "fuel": "Hybrid",
     "status": "available",
     "price": 1720000,
     "negotiable": false,
-    "condition": "Well Maintained",
+    "condition": "Used",
     "year": 2016,
     "engine_cc": 1500,
     "features": [
-      "Accident Free",
-      "1.5L 1NZ-FXE 4-Cylinder Petrol Engine",
-      "Hybrid Synergy Drive"
+      "Well Maintained",
+      "Accident Free"
     ],
+    "specs": {
+      "Engine": "1.5L 1NZ-FXE 4-cylinder petrol with Hybrid Synergy Drive"
+    },
     "images": [
       "images/vehicle61-exterior-face.jpg",
       "images/vehicle61-exterior-front.jpg",
@@ -337,14 +340,14 @@
       "images/vehicle61-plate.jpg"
     ],
     "contact_phone": "+254 757 782887",
-    "contact_email": "cyrusmaina075@gmail.com"
+    "contact_email": "tbagdealers@gmail.com"
   },
   {
     "id": "v0058",
-    "name": "Toyota Hiace 7L 2016 3000cc KDR",
+    "name": "Toyota Hiace 7L 2016 3000cc",
     "make": "Toyota",
     "model": "Hiace",
-    "body": "Hatchback",
+    "body": "Van",
     "fuel": "Diesel",
     "status": "available",
     "price": 2880000,
@@ -353,11 +356,11 @@
     "year": 2016,
     "engine_cc": 3000,
     "transmission": "Automatic",
+    "drive": "AWD",
+    "seats": 14,
     "features": [
-      "AWD",
       "Original Paint",
       "Accident Free",
-      "14 Seater",
       "Buy & Drive"
     ],
     "images": [
@@ -374,21 +377,22 @@
       "images/vehicle60-plate.jpg"
     ],
     "contact_phone": "+254 757 782887",
-    "contact_email": "cyrusmaina075@gmail.com"
+    "contact_email": "tbagdealers@gmail.com"
   },
   {
     "id": "v0057",
-    "name": "Suzuki Swift 1300cc KDA",
+    "name": "Suzuki Swift 1300cc",
     "make": "Suzuki",
     "model": "Swift",
     "body": "Hatchback",
     "fuel": "Petrol",
     "status": "sold",
     "negotiable": false,
-    "condition": "Well Maintained",
+    "condition": "Used",
     "year": 2013,
     "engine_cc": 1300,
     "features": [
+      "Well Maintained",
       "Accident Free",
       "Trade-In Accepted",
       "Financing Accepted",
@@ -406,11 +410,11 @@
       "images/vehicle59-trunck.jpg"
     ],
     "contact_phone": "+254 757 782887",
-    "contact_email": "cyrusmaina075@gmail.com"
+    "contact_email": "tbagdealers@gmail.com"
   },
   {
     "id": "v0056",
-    "name": "Toyota Ractis 2012 1500cc KCR",
+    "name": "Toyota Ractis 2012 1500cc",
     "make": "Toyota",
     "model": "Ractis",
     "body": "Hatchback",
@@ -421,8 +425,8 @@
     "condition": "Mint Condition",
     "year": 2012,
     "engine_cc": 1500,
+    "drive": "2WD",
     "features": [
-      "2WD",
       "Original Paint",
       "Accident Free",
       "Buy & Drive"
@@ -433,24 +437,25 @@
       "images/vehicle58-exterior-back.jpg"
     ],
     "contact_phone": "+254 757 782887",
-    "contact_email": "cyrusmaina075@gmail.com"
+    "contact_email": "tbagdealers@gmail.com"
   },
   {
     "id": "v0055",
-    "name": "Toyota Voxy 2017 2000cc Valve Matic KDH",
+    "name": "Toyota Voxy 2017 2000cc Valvematic",
     "make": "Toyota",
     "model": "Voxy",
-    "body": "Hatchback",
+    "body": "Minivan",
     "fuel": "Petrol",
     "status": "sold",
     "negotiable": false,
-    "condition": "Well Maintained",
+    "condition": "Used",
     "year": 2017,
     "engine_cc": 2000,
+    "seats": 7,
     "features": [
+      "Well Maintained",
       "Accident Free",
       "Fabric Seats",
-      "7 Seater",
       "Original Paint",
       "Ready Documents"
     ],
@@ -469,32 +474,32 @@
       "images/vehicle57-plate.jpg"
     ],
     "contact_phone": "+254 757 782887",
-    "contact_email": "cyrusmaina075@gmail.com"
+    "contact_email": "tbagdealers@gmail.com"
   },
   {
     "id": "v0054",
-    "name": "Mazda Axela 2015 1496cc KDK",
+    "name": "Mazda Axela 2015 1496cc",
     "make": "Mazda",
     "model": "Axela",
     "body": "Hatchback",
     "fuel": "Petrol",
-    "status": "available",
-    "price": 1480000,
+    "status": "sold",
     "negotiable": false,
     "condition": "Used",
     "year": 2015,
     "engine_cc": 1496,
     "transmission": "Automatic",
-    "features": [
-      "2WD",
-      "Acceleration: 0–100kph/9.0s",
-      "Fuel Consumption: 5.8L/100Kms",
-      "Engine Code: PE-VPS",
-      "Engine Oil Capacity: 4.2L",
-      "Fuel Tank Capacity: 51L",
-      "Tyre Size: 205/60R16",
-      "Ground Clearance: 6.1In"
-    ],
+    "drive": "2WD",
+    "features": [],
+    "specs": {
+      "Acceleration (0–100 km/h)": "9.0 s",
+      "Fuel Consumption": "5.8 L/100 km",
+      "Engine Code": "PE-VPS",
+      "Engine Oil Capacity": "4.2 L",
+      "Fuel Tank Capacity": "51 L",
+      "Tyre Size": "205/60R16",
+      "Ground Clearance": "6.1 in"
+    },
     "images": [
       "images/vehicle56-exterior-face.jpg",
       "images/vehicle56-interior1.jpg",
@@ -507,23 +512,23 @@
       "images/vehicle56-exterior-back.jpg"
     ],
     "contact_phone": "+254 757 782887",
-    "contact_email": "cyrusmaina075@gmail.com"
+    "contact_email": "tbagdealers@gmail.com"
   },
   {
     "id": "v0053",
-    "name": "Toyota Succeed 1500cc KCU",
+    "name": "Toyota Succeed 1500cc",
     "make": "Toyota",
     "model": "Succeed",
-    "body": "Hatchback",
+    "body": "Station Wagon",
     "fuel": "Petrol",
-    "status": "available",
-    "price": 890000,
-    "negotiable": true,
-    "condition": "Well Maintained",
+    "status": "sold",
+    "negotiable": false,
+    "condition": "Used",
     "year": 2012,
     "engine_cc": 1500,
+    "drive": "2WD",
     "features": [
-      "2WD",
+      "Well Maintained",
       "Ready Documents",
       "Buy & Drive"
     ],
@@ -540,25 +545,24 @@
       "images/vehicle55-plate.jpg"
     ],
     "contact_phone": "+254 757 782887",
-    "contact_email": "cyrusmaina075@gmail.com"
+    "contact_email": "tbagdealers@gmail.com"
   },
   {
     "id": "v0052",
-    "name": "Toyota Fielder 2016 KDM",
+    "name": "Toyota Fielder 2016",
     "make": "Toyota",
     "model": "Fielder",
-    "body": "Hatchback",
+    "body": "Station Wagon",
     "fuel": "Petrol",
-    "status": "available",
-    "price": 1785000,
-    "negotiable": true,
+    "status": "sold",
+    "negotiable": false,
     "condition": "Mint Condition",
     "year": 2016,
+    "drive": "2WD",
     "features": [
-      "2WD",
       "Original Paint",
       "Accident Free",
-      "Ready Documentation"
+      "Ready Documents"
     ],
     "images": [
       "images/vehicle54-exterior-face.jpg",
@@ -575,27 +579,28 @@
       "images/vehicle54-plate.jpg"
     ],
     "contact_phone": "+254 757 782887",
-    "contact_email": "cyrusmaina075@gmail.com"
+    "contact_email": "tbagdealers@gmail.com"
   },
   {
     "id": "v0051",
-    "name": "Subaru Forester SG9 2000cc Turbo Charged",
+    "name": "Subaru Forester SG9 2000cc Turbocharged",
     "make": "Subaru",
     "model": "Forester",
-    "body": "Hatchback",
+    "body": "SUV",
     "fuel": "Petrol",
     "status": "available",
     "price": 1049000,
     "negotiable": true,
-    "condition": "Mechanically Excellent",
+    "condition": "Used",
     "year": 2007,
     "engine_cc": 2000,
     "transmission": "Automatic",
     "features": [
-      "Turbocharged",
       "Blister Shocks",
       "Great Suspension",
-      "Super Clean Neat Original Gray Interior"
+      "Mechanically Excellent",
+      "Super Clean",
+      "Neat Original Gray Interior"
     ],
     "images": [
       "images/vehicle53-exterior-face.jpg",
@@ -604,7 +609,6 @@
       "images/vehicle53.engine.jpg",
       "images/vehicle53-exterior-side2.jpg",
       "images/vehicle53-exterior-front.jpg",
-      "images/vehicle53-exterior-front.jpg",
       "images/vehicle53-exterior-side.jpg",
       "images/vehicle53-exterior-side1.jpg",
       "images/vehicle53-exterior-back.jpg",
@@ -612,11 +616,11 @@
       "images/vehicle53-plate.jpg"
     ],
     "contact_phone": "+254 757 782887",
-    "contact_email": "cyrusmaina075@gmail.com"
+    "contact_email": "tbagdealers@gmail.com"
   },
   {
     "id": "v0050",
-    "name": "Mazda Axela 1496cc KDK",
+    "name": "Mazda Axela 1496cc",
     "make": "Mazda",
     "model": "Axela",
     "body": "Hatchback",
@@ -627,13 +631,14 @@
     "condition": "Used",
     "engine_cc": 1496,
     "transmission": "Automatic",
-    "features": [
-      "Acceleration: 0–100kph/9.0s",
-      "Fuel Consumption: 5.8L/100Kms",
-      "Fuel Tank Capacity: 51L",
-      "Tyre Size: 205/60R16",
-      "Ground Clearance: 6.1In"
-    ],
+    "features": [],
+    "specs": {
+      "Acceleration (0–100 km/h)": "9.0 s",
+      "Fuel Consumption": "5.8 L/100 km",
+      "Fuel Tank Capacity": "51 L",
+      "Tyre Size": "205/60R16",
+      "Ground Clearance": "6.1 in"
+    },
     "images": [
       "images/vehicle52-exterior-face.jpg",
       "images/vehicle52-interior1.jpg",
@@ -645,29 +650,31 @@
       "images/vehicle52-plate.jpg"
     ],
     "contact_phone": "+254 757 782887",
-    "contact_email": "cyrusmaina075@gmail.com"
+    "contact_email": "tbagdealers@gmail.com"
   },
   {
     "id": "v0049",
-    "name": "Honda Vezel 1496cc KDP",
+    "name": "Honda Vezel 1496cc",
     "make": "Honda",
     "model": "Vezel",
-    "body": "Hatchback",
-    "fuel": "Hybrid Z",
+    "body": "SUV",
+    "fuel": "Hybrid",
     "status": "sold",
     "negotiable": false,
     "condition": "Used",
     "engine_cc": 1496,
     "transmission": "CVT",
-    "features": [
-      "Acceleration: 0-100kph/8.5s",
-      "Fuel Consumption: 4.8L/100Kms",
-      "Engine Position: Front Transverse",
-      "Fabric/Leather Upholstery",
-      "Fuel Tank Capacity: 40L",
-      "Tyre Size: 215/55R17",
-      "Ground Clearance: 6.7In"
-    ],
+    "features": [],
+    "specs": {
+      "Grade": "Hybrid Z",
+      "Acceleration (0–100 km/h)": "8.5 s",
+      "Fuel Consumption": "4.8 L/100 km",
+      "Engine Position": "Front/Transverse",
+      "Upholstery": "Fabric/Leather",
+      "Fuel Tank Capacity": "40 L",
+      "Tyre Size": "215/55R17",
+      "Ground Clearance": "6.7 in"
+    },
     "images": [
       "images/vehicle51-exterior-face.jpg",
       "images/vehicle51-interior1.jpg",
@@ -683,11 +690,11 @@
       "images/vehicle51-plate.jpg"
     ],
     "contact_phone": "+254 757 782887",
-    "contact_email": "cyrusmaina075@gmail.com"
+    "contact_email": "tbagdealers@gmail.com"
   },
   {
     "id": "v0048",
-    "name": "Toyota Auris 1500cc KBY",
+    "name": "Toyota Auris 1500cc",
     "make": "Toyota",
     "model": "Auris",
     "body": "Hatchback",
@@ -695,9 +702,10 @@
     "status": "available",
     "price": 800000,
     "negotiable": true,
-    "condition": "Well Maintained",
+    "condition": "Used",
     "engine_cc": 1500,
     "features": [
+      "Well Maintained",
       "Financing Accepted",
       "Accident Free",
       "Buy & Drive"
@@ -709,15 +717,14 @@
       "images/vehicle50.engine.jpg",
       "images/vehicle50-exterior-side.jpg",
       "images/vehicle50-exterior-front.jpg",
-      "images/vehicle50-exterior-side.jpg",
       "images/vehicle50-plate.jpg"
     ],
     "contact_phone": "+254 757 782887",
-    "contact_email": "cyrusmaina075@gmail.com"
+    "contact_email": "tbagdealers@gmail.com"
   },
   {
     "id": "v0047",
-    "name": "Mazda Demio 1500cc KDR",
+    "name": "Mazda Demio 1500cc",
     "make": "Mazda",
     "model": "Demio",
     "body": "Hatchback",
@@ -745,14 +752,14 @@
       "images/vehicle49-plate.jpg"
     ],
     "contact_phone": "+254 757 782887",
-    "contact_email": "cyrusmaina075@gmail.com"
+    "contact_email": "tbagdealers@gmail.com"
   },
   {
     "id": "v0046",
     "name": "Toyota Probox 1500cc",
     "make": "Toyota",
     "model": "Probox",
-    "body": "Hatchback",
+    "body": "Station Wagon",
     "fuel": "Petrol",
     "status": "available",
     "price": 1150000,
@@ -760,8 +767,8 @@
     "condition": "Mint Condition",
     "year": 2017,
     "engine_cc": 1500,
+    "drive": "2WD",
     "features": [
-      "2WD",
       "Well Maintained",
       "Accident Free"
     ],
@@ -776,14 +783,14 @@
       "images/vehicle48-plate.jpg"
     ],
     "contact_phone": "+254 757 782887",
-    "contact_email": "cyrusmaina075@gmail.com"
+    "contact_email": "tbagdealers@gmail.com"
   },
   {
     "id": "v0045",
     "name": "Toyota Fielder 1500cc 2011",
     "make": "Toyota",
     "model": "Fielder",
-    "body": "Hatchback",
+    "body": "Station Wagon",
     "fuel": "Petrol",
     "status": "available",
     "price": 1080000,
@@ -791,8 +798,8 @@
     "condition": "Mint Condition",
     "year": 2011,
     "engine_cc": 1500,
+    "drive": "2WD",
     "features": [
-      "2WD",
       "Well Maintained",
       "Accident Free"
     ],
@@ -809,14 +816,14 @@
       "images/vehicle47.plate.jpg"
     ],
     "contact_phone": "+254 757 782887",
-    "contact_email": "cyrusmaina075@gmail.com"
+    "contact_email": "tbagdealers@gmail.com"
   },
   {
     "id": "v0044",
-    "name": "Toyota Fielder 1500cc DG",
+    "name": "Toyota Fielder 1500cc",
     "make": "Toyota",
     "model": "Fielder",
-    "body": "Hatchback",
+    "body": "Station Wagon",
     "fuel": "Petrol",
     "status": "sold",
     "negotiable": false,
@@ -834,22 +841,22 @@
       "images/vehicle46-exterior-back.jpg"
     ],
     "contact_phone": "+254 757 782887",
-    "contact_email": "cyrusmaina075@gmail.com"
+    "contact_email": "tbagdealers@gmail.com"
   },
   {
     "id": "v0043",
-    "name": "Toyota Fielder 1500cc DD",
+    "name": "Toyota Fielder 1500cc",
     "make": "Toyota",
     "model": "Fielder",
-    "body": "Hatchback",
+    "body": "Station Wagon",
     "fuel": "Petrol",
     "status": "sold",
     "negotiable": false,
     "condition": "Mint Condition",
     "year": 2016,
     "engine_cc": 1500,
+    "drive": "2WD",
     "features": [
-      "2WD",
       "Well Maintained",
       "Accident Free"
     ],
@@ -863,7 +870,7 @@
       "images/vehicle45-plate.jpg"
     ],
     "contact_phone": "+254 757 782887",
-    "contact_email": "cyrusmaina075@gmail.com"
+    "contact_email": "tbagdealers@gmail.com"
   },
   {
     "id": "v0042",
@@ -877,8 +884,8 @@
     "condition": "Used",
     "year": 2006,
     "engine_cc": 1500,
+    "drive": "2WD",
     "features": [
-      "2WD",
       "Original Paint",
       "Accident Free",
       "Low Mileage",
@@ -897,25 +904,24 @@
       "images/vehicle44-plate.jpg"
     ],
     "contact_phone": "+254 757 782887",
-    "contact_email": "cyrusmaina075@gmail.com"
+    "contact_email": "tbagdealers@gmail.com"
   },
   {
     "id": "v0041",
     "name": "Toyota Wish 1800cc",
     "make": "Toyota",
     "model": "Wish",
-    "body": "Hatchback",
+    "body": "Minivan",
     "fuel": "Petrol",
-    "status": "available",
-    "price": 980000,
+    "status": "sold",
     "negotiable": false,
     "condition": "Mint Condition",
     "year": 2012,
     "engine_cc": 1800,
+    "drive": "2WD",
+    "seats": 7,
     "features": [
-      "2WD",
-      "Accident Free",
-      "7 Seater"
+      "Accident Free"
     ],
     "images": [
       "images/vehicle43-exterior-face.jpg",
@@ -931,22 +937,22 @@
       "images/vehicle43-plate.jpg"
     ],
     "contact_phone": "+254 757 782887",
-    "contact_email": "cyrusmaina075@gmail.com"
+    "contact_email": "tbagdealers@gmail.com"
   },
   {
     "id": "v0040",
-    "name": "Toyota Fielder 1500cc CY",
+    "name": "Toyota Fielder 1500cc",
     "make": "Toyota",
     "model": "Fielder",
-    "body": "Hatchback",
+    "body": "Station Wagon",
     "fuel": "Petrol",
     "status": "sold",
     "negotiable": false,
     "condition": "Mint Condition",
     "year": 2013,
     "engine_cc": 1500,
+    "drive": "2WD",
     "features": [
-      "2WD",
       "Accident Free"
     ],
     "images": [
@@ -959,31 +965,32 @@
       "images/vehicle42-plate.jpg"
     ],
     "contact_phone": "+254 757 782887",
-    "contact_email": "cyrusmaina075@gmail.com"
+    "contact_email": "tbagdealers@gmail.com"
   },
   {
     "id": "v0039",
-    "name": "Land Cruiser LC76 Series 4200cc KDX",
+    "name": "Toyota Land Cruiser LC76 Series 4200cc",
     "make": "Toyota",
     "model": "Land Cruiser LC76",
-    "body": "Hatchback",
+    "body": "SUV",
     "fuel": "Diesel",
     "status": "sold",
     "negotiable": false,
-    "condition": "Well Maintained",
+    "condition": "Used",
     "engine_cc": 4200,
-    "transmission": "Manual",
+    "transmission": "Manual (5-speed)",
+    "drive": "4WD",
     "features": [
-      "4WD",
-      "5-Speed Manual Transmission",
       "Local Assembly",
       "Optional Diff Lock",
       "5 Power Windows",
       "Low Genuine Mileage",
-      "Powerful & Reliable Performance",
+      "Powerful & Reliable",
+      "Performance",
       "Accident Free",
       "Superbly Clean",
       "Original Paint",
+      "Well Maintained",
       "Ready Documents",
       "Buy & Drive",
       "Trade-In Accepted"
@@ -999,7 +1006,7 @@
       "images/vehicle41-plate.jpg"
     ],
     "contact_phone": "+254 757 782887",
-    "contact_email": "cyrusmaina075@gmail.com"
+    "contact_email": "tbagdealers@gmail.com"
   },
   {
     "id": "v0038",
@@ -1010,11 +1017,12 @@
     "fuel": "Hybrid",
     "status": "sold",
     "negotiable": false,
-    "condition": "Extremely Clean",
+    "condition": "Used",
     "engine_cc": 1500,
+    "drive": "2WD",
     "features": [
-      "2WD",
       "Accident Free",
+      "Extremely Clean",
       "Trade-In Accepted"
     ],
     "images": [
@@ -1030,7 +1038,7 @@
       "images/vehicle40-plate.jpg"
     ],
     "contact_phone": "+254 757 782887",
-    "contact_email": "cyrusmaina075@gmail.com"
+    "contact_email": "tbagdealers@gmail.com"
   },
   {
     "id": "v0037",
@@ -1062,7 +1070,7 @@
       "images/vehicle39-trunck.jpg"
     ],
     "contact_phone": "+254 757 782887",
-    "contact_email": "cyrusmaina075@gmail.com"
+    "contact_email": "tbagdealers@gmail.com"
   },
   {
     "id": "v0036",
@@ -1076,8 +1084,8 @@
     "condition": "Mint Condition",
     "year": 2008,
     "engine_cc": 1500,
+    "drive": "2WD",
     "features": [
-      "2WD",
       "Original Paint",
       "Accident Free"
     ],
@@ -1095,7 +1103,7 @@
       "images/vehicle38-plate.jpg"
     ],
     "contact_phone": "+254 757 782887",
-    "contact_email": "cyrusmaina075@gmail.com"
+    "contact_email": "tbagdealers@gmail.com"
   },
   {
     "id": "v0035",
@@ -1104,13 +1112,12 @@
     "model": "Premio",
     "body": "Hatchback",
     "fuel": "Petrol",
-    "status": "available",
-    "price": 1499000,
-    "negotiable": true,
+    "status": "sold",
+    "negotiable": false,
     "condition": "Mint Condition",
     "year": 2013,
+    "drive": "2WD",
     "features": [
-      "2WD",
       "Well Maintained",
       "Accident Free",
       "Lady Driven"
@@ -1128,31 +1135,32 @@
       "images/vehicle37.plate.jpg"
     ],
     "contact_phone": "+254 757 782887",
-    "contact_email": "cyrusmaina075@gmail.com"
+    "contact_email": "tbagdealers@gmail.com"
   },
   {
     "id": "v0034",
     "name": "Toyota Hilux Revo 2400cc",
     "make": "Toyota",
     "model": "Hilux Revo",
-    "body": "Hatchback",
+    "body": "Pickup",
     "fuel": "Diesel",
     "status": "available",
     "negotiable": false,
-    "condition": "Well Maintained",
+    "price_note": "Export from UAE — shipment available with 50% advance",
+    "condition": "Used",
     "engine_cc": 2400,
     "mileage_km": 34600,
     "transmission": "Automatic",
+    "drive": "4WD",
     "features": [
-      "4WD",
-      "Export from UAE",
-      "Shipment Available (50% Advance)"
+      "Well Maintained"
     ],
+    "note": "Serious buyers only",
     "images": [
       "images/vehicle36-exterior-face.jpg"
     ],
     "contact_phone": "+254 757 782887",
-    "contact_email": "cyrusmaina075@gmail.com"
+    "contact_email": "tbagdealers@gmail.com"
   },
   {
     "id": "v0033",
@@ -1180,14 +1188,14 @@
       "images/vehicle35-plate.jpg"
     ],
     "contact_phone": "+254 757 782887",
-    "contact_email": "cyrusmaina075@gmail.com"
+    "contact_email": "tbagdealers@gmail.com"
   },
   {
     "id": "v0032",
     "name": "Toyota Wish 1800cc",
     "make": "Toyota",
     "model": "Wish",
-    "body": "Hatchback",
+    "body": "Minivan",
     "fuel": "Petrol",
     "status": "available",
     "price": 1100000,
@@ -1199,7 +1207,7 @@
     "features": [
       "Leather Seats",
       "Cruise Control",
-      "Front & Rear Brake Pads"
+      "Brake Pads (Front & Rear)"
     ],
     "images": [
       "images/vehicle34-exterior-face.jpg",
@@ -1214,14 +1222,14 @@
       "images/vehicle34-plate.jpg"
     ],
     "contact_phone": "+254 757 782887",
-    "contact_email": "cyrusmaina075@gmail.com"
+    "contact_email": "tbagdealers@gmail.com"
   },
   {
     "id": "v0031",
     "name": "Toyota Fielder 2016 1500cc",
     "make": "Toyota",
     "model": "Fielder",
-    "body": "Hatchback",
+    "body": "Station Wagon",
     "fuel": "Hybrid",
     "status": "available",
     "price": 1380000,
@@ -1229,8 +1237,8 @@
     "condition": "Used",
     "year": 2016,
     "engine_cc": 1500,
+    "drive": "2WD",
     "features": [
-      "2WD",
       "Original Paint",
       "Accident Free",
       "Low Mileage"
@@ -1247,11 +1255,11 @@
       "images/vehicle33-plate.jpg"
     ],
     "contact_phone": "+254 757 782887",
-    "contact_email": "cyrusmaina075@gmail.com"
+    "contact_email": "tbagdealers@gmail.com"
   },
   {
     "id": "v0030",
-    "name": "Toyota Ractis 1300cc 2WD",
+    "name": "Toyota Ractis 1300cc",
     "make": "Toyota",
     "model": "Ractis",
     "body": "Hatchback",
@@ -1261,7 +1269,6 @@
     "condition": "Used",
     "engine_cc": 1300,
     "features": [
-      "2WD",
       "Trade-In Accepted",
       "Original Paint",
       "Accident Free"
@@ -1275,7 +1282,7 @@
       "images/vehicle32-exterior-back.jpg"
     ],
     "contact_phone": "+254 757 782887",
-    "contact_email": "cyrusmaina075@gmail.com"
+    "contact_email": "tbagdealers@gmail.com"
   },
   {
     "id": "v0029",
@@ -1286,16 +1293,17 @@
     "fuel": "Petrol",
     "status": "sold",
     "negotiable": false,
-    "condition": "Very Clean",
+    "condition": "Used",
     "year": 2013,
     "engine_cc": 1500,
     "transmission": "Automatic",
     "features": [
       "Wooden Trim Finish",
       "Alloy Rims",
-      "Cool Music System",
+      "Cool Music",
       "Reverse Camera",
       "Perfect Suspension",
+      "Very Clean",
       "Buy & Drive"
     ],
     "images": [
@@ -1305,11 +1313,11 @@
       "images/vehicle31-exterior-back.jpg"
     ],
     "contact_phone": "+254 757 782887",
-    "contact_email": "cyrusmaina075@gmail.com"
+    "contact_email": "tbagdealers@gmail.com"
   },
   {
     "id": "v0028",
-    "name": "Toyota Premio 1500cc 2WD",
+    "name": "Toyota Premio 1500cc",
     "make": "Toyota",
     "model": "Premio",
     "body": "Hatchback",
@@ -1319,7 +1327,6 @@
     "condition": "Mint Condition",
     "engine_cc": 1500,
     "features": [
-      "2WD",
       "Original Paint",
       "Accident Free",
       "Buy & Drive"
@@ -1329,7 +1336,7 @@
       "images/vehicle30-interior1.jpg"
     ],
     "contact_phone": "+254 757 782887",
-    "contact_email": "cyrusmaina075@gmail.com"
+    "contact_email": "tbagdealers@gmail.com"
   },
   {
     "id": "v0027",
@@ -1353,13 +1360,626 @@
       "images/vehicle29-interior2.jpg",
       "images/vehicle29-interior3.jpg",
       "images/vehicle29.engine.jpg",
-      "images/vehicle29-exterior-facecard.jpg",
       "images/vehicle29-exterior-side.jpg",
       "images/vehicle29-exterior-front.jpg",
       "images/vehicle29-exterior-back.jpg",
       "images/vehicle29-plate.jpg"
     ],
     "contact_phone": "+254 757 782887",
-    "contact_email": "cyrusmaina075@gmail.com"
+    "contact_email": "tbagdealers@gmail.com"
+  },
+  {
+    "id": "v0011",
+    "name": "Subaru Forester 2000cc (Non-Turbo)",
+    "make": "Subaru",
+    "model": "Forester",
+    "body": "SUV",
+    "fuel": "Hybrid",
+    "status": "available",
+    "price": 1350000,
+    "negotiable": false,
+    "condition": "Mint Condition",
+    "engine_cc": 2000,
+    "features": [],
+    "images": [
+      "images/vehicle28-exterior-face.jpg",
+      "images/vehicle28-interior1.jpg",
+      "images/vehicle28-plate.jpg",
+      "images/vehicle28-exterior-front.jpg",
+      "images/vehicle28-exterior-back.jpg"
+    ],
+    "contact_phone": "+254 757 782887",
+    "contact_email": "tbagdealers@gmail.com"
+  },
+  {
+    "id": "v0026",
+    "name": "Toyota Axio 1500cc",
+    "make": "Toyota",
+    "model": "Axio",
+    "body": "Hatchback",
+    "fuel": "Petrol",
+    "status": "sold",
+    "negotiable": false,
+    "condition": "Used",
+    "engine_cc": 1500,
+    "transmission": "Automatic",
+    "features": [
+      "Wooden Trim Finish",
+      "Alloy Rims",
+      "Reverse Camera",
+      "Bumper Foglights",
+      "Perfect Suspension"
+    ],
+    "images": [
+      "images/vehicle27-exterior-face.jpg",
+      "images/vehicle27-interior1.jpg",
+      "images/vehicle27-interior2.jpg",
+      "images/vehicle27-interior3.jpg",
+      "images/vehicle27.engine.jpg",
+      "images/vehicle27-exterior-front.jpg",
+      "images/vehicle27-exterior-back.jpg"
+    ],
+    "contact_phone": "+254 757 782887",
+    "contact_email": "tbagdealers@gmail.com"
+  },
+  {
+    "id": "v0025",
+    "name": "Mazda CX5 2017 2000cc",
+    "make": "Mazda",
+    "model": "CX5",
+    "body": "SUV",
+    "fuel": "Petrol",
+    "status": "sold",
+    "negotiable": false,
+    "condition": "Mint Condition",
+    "year": 2017,
+    "engine_cc": 2000,
+    "mileage_km": 66000,
+    "features": [
+      "Original Paint",
+      "Accident Free"
+    ],
+    "images": [
+      "images/vehicle26-exterior-face.jpg",
+      "images/vehicle26-interior1.jpg",
+      "images/vehicle26-interior2.jpg",
+      "images/vehicle26.engine.jpg"
+    ],
+    "contact_phone": "+254 757 782887",
+    "contact_email": "tbagdealers@gmail.com"
+  },
+  {
+    "id": "v0024",
+    "name": "Toyota Fielder 2016",
+    "make": "Toyota",
+    "model": "Fielder",
+    "body": "Station Wagon",
+    "fuel": "Diesel",
+    "status": "sold",
+    "negotiable": false,
+    "condition": "Mint Condition",
+    "year": 2016,
+    "features": [
+      "Original Paint",
+      "Ready Documents"
+    ],
+    "images": [
+      "images/vehicle25-exterior-face.jpg",
+      "images/vehicle25-interior1.jpg"
+    ],
+    "contact_phone": "+254 757 782887",
+    "contact_email": "tbagdealers@gmail.com"
+  },
+  {
+    "id": "v0023",
+    "name": "Toyota 110 1500cc",
+    "make": "Toyota",
+    "model": "110",
+    "body": "Hatchback",
+    "fuel": "Diesel",
+    "status": "sold",
+    "negotiable": false,
+    "condition": "Mint Condition",
+    "engine_cc": 1500,
+    "features": [
+      "Fabric Seats",
+      "Accident Free"
+    ],
+    "images": [
+      "images/vehicle24-exterior-face.jpg",
+      "images/vehicle24-interior2.jpg",
+      "images/vehicle24-interior1.jpg",
+      "images/vehicle24.engine.jpg",
+      "images/vehicle24-plate.jpg",
+      "images/vehicle24-exterior-side.jpg",
+      "images/vehicle24-exterior-front.jpg",
+      "images/vehicle24-exterior-back.jpg"
+    ],
+    "contact_phone": "+254 757 782887",
+    "contact_email": "tbagdealers@gmail.com"
+  },
+  {
+    "id": "v0022",
+    "name": "Subaru Impreza GG3",
+    "make": "Subaru",
+    "model": "Impreza GG3",
+    "body": "Hatchback",
+    "fuel": "Diesel",
+    "status": "sold",
+    "negotiable": false,
+    "condition": "Mint Condition",
+    "features": [
+      "New Tyres",
+      "Heavy Music System"
+    ],
+    "images": [
+      "images/vehicle23-exterior-face.jpg",
+      "images/vehicle23-interior2.jpg",
+      "images/vehicle23-interior1.jpg",
+      "images/vehicle23.engine.jpg",
+      "images/vehicle23.engine1.jpg",
+      "images/vehicle23.engine2.jpg",
+      "images/vehicle23-exterior-back.jpg"
+    ],
+    "contact_phone": "+254 757 782887",
+    "contact_email": "tbagdealers@gmail.com"
+  },
+  {
+    "id": "v0021",
+    "name": "Toyota Vitz 1800cc",
+    "make": "Toyota",
+    "model": "Vitz",
+    "body": "Hatchback",
+    "fuel": "Diesel",
+    "status": "sold",
+    "negotiable": false,
+    "condition": "Immaculate",
+    "engine_cc": 1800,
+    "features": [
+      "Push To Start"
+    ],
+    "images": [
+      "images/vehicle22-exterior-face.jpg",
+      "images/vehicle22-interior2.jpg",
+      "images/vehicle22-interior1.jpg",
+      "images/vehicle22.engine.jpg",
+      "images/vehicle22-exterior-side.jpg",
+      "images/vehicle22-exterior-front.jpg",
+      "images/vehicle22-exterior-back.jpg",
+      "images/vehicle22-plate.jpg"
+    ],
+    "contact_phone": "+254 757 782887",
+    "contact_email": "tbagdealers@gmail.com"
+  },
+  {
+    "id": "v0020",
+    "name": "Toyota Fielder",
+    "make": "Toyota",
+    "model": "Fielder",
+    "body": "Station Wagon",
+    "fuel": "Diesel",
+    "status": "sold",
+    "negotiable": false,
+    "condition": "Mint Condition",
+    "features": [
+      "Original Paint",
+      "Ready Documents"
+    ],
+    "images": [
+      "images/vehicle21-exterior-face.jpg",
+      "images/vehicle21-interior2.jpg",
+      "images/vehicle21-interior1.jpg",
+      "images/vehicle21.engine.jpg",
+      "images/vehicle21-plate.jpg",
+      "images/vehicle21-exterior-side.jpg",
+      "images/vehicle21.Trunck.jpg",
+      "images/vehicle21-exterior-back.jpg"
+    ],
+    "contact_phone": "+254 757 782887",
+    "contact_email": "tbagdealers@gmail.com"
+  },
+  {
+    "id": "v0019",
+    "name": "Toyota Fielder 2014 WXB",
+    "make": "Toyota",
+    "model": "Fielder",
+    "body": "Station Wagon",
+    "fuel": "Hybrid",
+    "status": "sold",
+    "negotiable": false,
+    "condition": "Mint Condition",
+    "year": 2014,
+    "features": [
+      "Original Paint",
+      "Accident Free",
+      "Ready Documents"
+    ],
+    "images": [
+      "images/vehicle20-exterior-face.jpg",
+      "images/vehicle20-interior2.jpg",
+      "images/vehicle20-interior1.jpg",
+      "images/vehicle20.engine.jpg",
+      "images/vehicle20-exterior-side.jpg",
+      "images/vehicle20-exterior-front.jpg",
+      "images/vehicle20-exterior-back.jpg",
+      "images/vehicle20-plate.jpg"
+    ],
+    "contact_phone": "+254 757 782887",
+    "contact_email": "tbagdealers@gmail.com"
+  },
+  {
+    "id": "v0018",
+    "name": "Toyota Passo 1000cc",
+    "make": "Toyota",
+    "model": "Passo",
+    "body": "Hatchback",
+    "fuel": "Diesel",
+    "status": "sold",
+    "negotiable": false,
+    "condition": "Used",
+    "engine_cc": 1000,
+    "features": [
+      "Well Maintained",
+      "Original Paint"
+    ],
+    "images": [
+      "images/vehicle19-exterior-face.jpg",
+      "images/vehicle19-interior3.jpg",
+      "images/vehicle19-interior2.jpg",
+      "images/vehicle19-interior1.jpg",
+      "images/vehicle19.engine.jpg",
+      "images/vehicle19.engine1.jpg",
+      "images/vehicle19-exterior-side.jpg",
+      "images/vehicle19.trunck.jpg",
+      "images/vehicle19-exterior-back.jpg"
+    ],
+    "contact_phone": "+254 757 782887",
+    "contact_email": "tbagdealers@gmail.com"
+  },
+  {
+    "id": "v0017",
+    "name": "Toyota Hiace 10L",
+    "make": "Toyota",
+    "model": "Hiace",
+    "body": "Van",
+    "fuel": "Diesel",
+    "status": "available",
+    "price": 7000000,
+    "negotiable": false,
+    "condition": "New",
+    "features": [
+      "Commuter Registration 2020"
+    ],
+    "engine_no": "1GD4849016",
+    "images": [
+      "images/vehicle18-exterior-front.jpg",
+      "images/vehicle18-exterior-back.jpg",
+      "images/vehicle18-exterior-face.jpg",
+      "images/vehicle18-exterior-side.jpg",
+      "images/vehicle18-interior1.jpg",
+      "images/vehicle18-interior2.jpg",
+      "images/vehicle18-interior3.jpg",
+      "images/vehicle18-interior4.jpg",
+      "images/vehicle18-plate.jpg"
+    ],
+    "contact_phone": "+254 757 782887",
+    "contact_email": "tbagdealers@gmail.com"
+  },
+  {
+    "id": "v0016",
+    "name": "Toyota Allion 1800cc",
+    "make": "Toyota",
+    "model": "Allion",
+    "body": "Hatchback",
+    "fuel": "Diesel",
+    "status": "sold",
+    "negotiable": false,
+    "condition": "Used",
+    "engine_cc": 1800,
+    "transmission": "Automatic",
+    "features": [
+      "Valvematic Engine",
+      "New Tyres",
+      "Alloy Rims",
+      "Wooden Trim Finish",
+      "Reverse Camera"
+    ],
+    "images": [
+      "images/vehicle17-exterior-face.jpg",
+      "images/vehicle17-interior1.jpg",
+      "images/vehicle17-interior2.jpg",
+      "images/vehicle17-plate.jpg",
+      "images/vehicle17.engine.jpg",
+      "images/vehicle17-exterior-side.jpg",
+      "images/vehicle17-exterior-front.jpg",
+      "images/vehicle17-exterior-back.jpg"
+    ],
+    "contact_phone": "+254 757 782887",
+    "contact_email": "tbagdealers@gmail.com"
+  },
+  {
+    "id": "v001",
+    "name": "Suzuki Swift RS",
+    "make": "Suzuki",
+    "model": "Swift RS",
+    "body": "Hatchback",
+    "fuel": "Hybrid",
+    "status": "sold",
+    "negotiable": false,
+    "condition": "Used",
+    "features": [],
+    "images": [
+      "images/vehicle1-exterior-front.jpg",
+      "images/vehicle1-exterior-back.jpg",
+      "images/vehicle1-exterior-face.jpg"
+    ],
+    "contact_phone": "+254 757 782887",
+    "contact_email": "tbagdealers@gmail.com"
+  },
+  {
+    "id": "v002",
+    "name": "Honda Fit",
+    "make": "Honda",
+    "model": "Fit",
+    "body": "Sedan",
+    "fuel": "Hybrid",
+    "status": "sold",
+    "negotiable": false,
+    "condition": "Used",
+    "features": [],
+    "images": [
+      "images/vehicle2-interior1.jpg",
+      "images/vehicle2-interior2.jpg",
+      "images/vehicle2-plate.jpg",
+      "images/vehicle2.engine.jpg",
+      "images/vehicle2-exterior-front.jpg",
+      "images/vehicle2-exterior-back.jpg"
+    ],
+    "contact_phone": "+254 757 782887",
+    "contact_email": "tbagdealers@gmail.com"
+  },
+  {
+    "id": "v003",
+    "name": "Suzuki Swift",
+    "make": "Suzuki",
+    "model": "Swift",
+    "body": "Hatchback",
+    "fuel": "Hybrid",
+    "status": "sold",
+    "negotiable": false,
+    "condition": "Used",
+    "features": [],
+    "images": [
+      "images/vehicle3-exterior-front.jpg",
+      "images/vehicle3-exterior-back.jpg",
+      "images/vehicle3-plate.jpg",
+      "images/vehicle3-exterior-wash.jpg",
+      "images/vehicle3-face.jpg",
+      "images/vehicle3-interior2.jpg",
+      "images/vehicle3-interior3.jpg",
+      "images/vehicle3-interior4.jpg",
+      "images/vehicle3-interior5.jpg",
+      "images/vehicle3-back.jpg"
+    ],
+    "contact_phone": "+254 757 782887",
+    "contact_email": "tbagdealers@gmail.com"
+  },
+  {
+    "id": "v004",
+    "name": "Toyota Vitz (XP90)",
+    "make": "Toyota",
+    "model": "Vitz",
+    "body": "Hatchback",
+    "fuel": "Hybrid",
+    "status": "sold",
+    "negotiable": false,
+    "condition": "Used",
+    "features": [],
+    "images": [
+      "images/vehicle4-exterior-front.jpg",
+      "images/vehicle4-exterior-back.jpg"
+    ],
+    "contact_phone": "+254 757 782887",
+    "contact_email": "tbagdealers@gmail.com"
+  },
+  {
+    "id": "v005",
+    "name": "Subaru Forester Cross Sports (SG)",
+    "make": "Subaru",
+    "model": "Forester Cross Sports",
+    "body": "SUV",
+    "fuel": "Hybrid",
+    "status": "sold",
+    "negotiable": false,
+    "condition": "Modified",
+    "features": [],
+    "images": [
+      "images/vehicle5-exterior-front.jpg",
+      "images/vehicle5-exterior-back.jpg"
+    ],
+    "contact_phone": "+254 757 782887",
+    "contact_email": "tbagdealers@gmail.com"
+  },
+  {
+    "id": "v008",
+    "name": "Toyota Sienta (XP170)",
+    "make": "Toyota",
+    "model": "Sienta",
+    "body": "Minivan",
+    "fuel": "Hybrid",
+    "status": "sold",
+    "negotiable": false,
+    "condition": "Used",
+    "mileage_km": 65000,
+    "features": [],
+    "images": [
+      "images/vehicle9-exterior-front.jpg",
+      "images/vehicle9-interior1.jpg",
+      "images/vehicle9-plate.jpg",
+      "images/vehicle9-exterior-back.jpg"
+    ],
+    "contact_phone": "+254 757 782887",
+    "contact_email": "tbagdealers@gmail.com"
+  },
+  {
+    "id": "v009",
+    "name": "Toyota Corolla Fielder 1500cc",
+    "make": "Toyota",
+    "model": "Corolla Fielder",
+    "body": "Station Wagon",
+    "fuel": "Hybrid",
+    "status": "sold",
+    "negotiable": false,
+    "condition": "Used",
+    "year": 2018,
+    "engine_cc": 1500,
+    "mileage_km": 78320,
+    "features": [
+      "Original Alloy Rims",
+      "Comes With Accessories"
+    ],
+    "images": [
+      "images/vehicle10-exterior-face.jpg",
+      "images/vehicle10-interior1.jpg",
+      "images/vehicle10-interior2.jpg",
+      "images/vehicle10.engine.jpg",
+      "images/vehicle10.Tire.jpg",
+      "images/vehicle10.Trunck.jpg",
+      "images/vehicle10-exterior-front.jpg",
+      "images/vehicle10-exterior-back.jpg"
+    ],
+    "contact_phone": "+254 757 782887",
+    "contact_email": "tbagdealers@gmail.com"
+  },
+  {
+    "id": "v0010",
+    "name": "Toyota Corolla L-Touring (AE100)",
+    "make": "Toyota",
+    "model": "Corolla L-Touring",
+    "body": "Hatchback",
+    "fuel": "Hybrid",
+    "status": "available",
+    "price": 450000,
+    "negotiable": true,
+    "condition": "Used",
+    "features": [],
+    "images": [
+      "images/vehicle11-exterior-face.jpg",
+      "images/vehicle11-interior1.jpg",
+      "images/vehicle11-interior2.jpg",
+      "images/vehicle11-plate.jpg",
+      "images/vehicle11.engine.jpg",
+      "images/vehicle11-exterior-front.jpg",
+      "images/vehicle11-exterior-back.jpg"
+    ],
+    "contact_phone": "+254 757 782887",
+    "contact_email": "tbagdealers@gmail.com"
+  },
+  {
+    "id": "v0012",
+    "name": "Toyota Corolla L-Touring",
+    "make": "Toyota",
+    "model": "Corolla L-Touring",
+    "body": "Hatchback",
+    "fuel": "Hybrid",
+    "status": "available",
+    "price": 400000,
+    "negotiable": true,
+    "condition": "Used",
+    "features": [
+      "Buy & Drive"
+    ],
+    "images": [
+      "images/vehicle13-exterior-face.jpg",
+      "images/vehicle13-interior1.jpg",
+      "images/vehicle13-interior2.jpg",
+      "images/vehicle13-plate.jpg",
+      "images/vehicle13.engine.jpg",
+      "images/vehicle13-interior3.jpg",
+      "images/vehicle13-exterior-front.jpg",
+      "images/vehicle13-exterior-back.jpg"
+    ],
+    "contact_phone": "+254 757 782887",
+    "contact_email": "tbagdealers@gmail.com"
+  },
+  {
+    "id": "v0013",
+    "name": "Toyota Hiace 7L 3000cc Diesel",
+    "make": "Toyota",
+    "model": "Hiace",
+    "body": "Van",
+    "fuel": "Diesel",
+    "status": "sold",
+    "negotiable": false,
+    "condition": "Used",
+    "engine_cc": 3000,
+    "transmission": "Automatic",
+    "features": [
+      "Turbocharged",
+      "1KD Engine"
+    ],
+    "images": [
+      "images/vehicle14-exterior-face.jpg",
+      "images/vehicle14-interior1.jpg",
+      "images/vehicle14-interior2.jpg",
+      "images/vehicle14-plate.jpg",
+      "images/vehicle14.engine.jpg",
+      "images/vehicle14-exterior-trunk.jpg",
+      "images/vehicle14-exterior-side.jpg",
+      "images/vehicle14-exterior-front.jpg",
+      "images/vehicle14-exterior-back.jpg"
+    ],
+    "contact_phone": "+254 757 782887",
+    "contact_email": "tbagdealers@gmail.com"
+  },
+  {
+    "id": "v0014",
+    "name": "Daihatsu Mira",
+    "make": "Daihatsu",
+    "model": "Mira",
+    "body": "Hatchback",
+    "fuel": "Hybrid",
+    "status": "sold",
+    "negotiable": false,
+    "condition": "Used",
+    "features": [],
+    "images": [
+      "images/vehicle15-exterior-face.jpg",
+      "images/vehicle15-interior1.jpg",
+      "images/vehicle15-interior2.jpg",
+      "images/vehicle15-plate.jpg",
+      "images/vehicle15.engine.jpg",
+      "images/vehicle15-exterior-front.jpg",
+      "images/vehicle15-exterior-back.jpg",
+      "images/vehicle15-exterior-trunk.jpg"
+    ],
+    "contact_phone": "+254 757 782887",
+    "contact_email": "tbagdealers@gmail.com"
+  },
+  {
+    "id": "v0015",
+    "name": "Subaru Impreza 1500cc",
+    "make": "Subaru",
+    "model": "Impreza",
+    "body": "Hatchback",
+    "fuel": "Hybrid",
+    "status": "sold",
+    "negotiable": false,
+    "condition": "Used",
+    "engine_cc": 1500,
+    "features": [
+      "Ready Documents",
+      "Buy & Drive"
+    ],
+    "images": [
+      "images/vehicle16-exterior-face.jpg",
+      "images/vehicle16-interior1.jpg",
+      "images/vehicle16-interior2.jpg",
+      "images/vehicle16-exterior-front.jpg",
+      "images/vehicle16-exterior-back.jpg",
+      "images/vehicle16-plate.jpg"
+    ],
+    "contact_phone": "+254 757 782887",
+    "contact_email": "tbagdealers@gmail.com"
   }
 ]
