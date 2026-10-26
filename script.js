@@ -47,16 +47,16 @@ const fuelOf = v => (v.fuel || 'Petrol').toLowerCase();
 function specsFor(v) {
   const rows = [
     ['Year', v.year],
-    ['Engine', v.engine_cc && v.engine_cc.toLocaleString('en-KE') + ' cc'],
-    ['Mileage', v.mileage_km && v.mileage_km.toLocaleString('en-KE') + ' km'],
+    ['Engine', v.engine_cc ? v.engine_cc.toLocaleString('en-KE') + ' cc' : null],
+    ['Mileage', v.mileage_km ? v.mileage_km.toLocaleString('en-KE') + ' km' : null],
     ['Gearbox', v.transmission],
     ['Fuel', v.fuel],
     ['Body', v.body],
     ['Drive', v.drive],
-    ['Seats', v.seats && v.seats + ' seats'],
+    ['Seats', v.seats ? v.seats + ' seats' : null],
     ['Condition', v.condition],
   ];
-  return rows.filter(r => r[1]);
+  return rows.filter(r => r[1] != null && r[1] !== '');
 }
 
 function buildSpecs(v) {
