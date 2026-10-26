@@ -256,22 +256,8 @@
 @media (min-width: 480px) {
     .spec-grid { grid-template-columns: repeat(3, 1fr); }
 }
-
-/* ---------- mobile optimized spec grid ---------- */
 @media (max-width: 479px) {
-    .spec-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 6px;
-    }
-    .spec {
-        padding: 7px 8px;
-    }
-    .spec-label {
-        font-size: .56rem;
-    }
-    .spec-value {
-        font-size: .78rem;
-    }
+    .spec:last-child:nth-child(odd) { grid-column: 1 / -1; }
 }
 
 /* ---------- floating WhatsApp button ---------- */
