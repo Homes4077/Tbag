@@ -114,6 +114,7 @@
     color: var(--secondary-color);
     border: 1px solid var(--secondary-color);
 }
+.price-note { flex-basis: 100%; font-size: .8rem; color: rgba(255,255,255,.7); }
 .sold-label {
     display: inline-block; padding: 4px 10px;
     font-size: .8rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
@@ -181,6 +182,39 @@
 }
 .feature-toggle:hover { background: rgba(195,176,145,.12); }
 
+/* ---------- technical specs ---------- */
+.tech-specs {
+    margin-bottom: 1.1rem;
+    border: 1px solid var(--glass-border);
+    border-radius: 2px;
+    background: var(--glass-bg);
+    overflow: hidden;
+}
+.tech-specs summary {
+    cursor: pointer; list-style: none;
+    padding: 10px 14px;
+    font-size: .78rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+    color: var(--primary-color);
+    display: flex; justify-content: space-between; align-items: center;
+}
+.tech-specs summary::-webkit-details-marker { display: none; }
+.tech-specs summary::after { content: '+'; font-size: 1.2rem; line-height: 1; }
+.tech-specs[open] summary::after { content: '-'; }
+.tech-specs dl { margin: 0; padding: 0 14px 6px; }
+.tech-row {
+    display: flex; justify-content: space-between; gap: 12px;
+    padding: 8px 0; border-top: 1px solid var(--glass-border);
+    font-size: .85rem;
+}
+.tech-row dt { color: rgba(255,255,255,.6); }
+.tech-row dd { margin: 0; font-weight: 600; text-align: right; }
+
+.vehicle-note {
+    margin-bottom: 1rem; padding: 8px 12px; border-radius: 2px;
+    font-size: .8rem; background: rgba(255,200,80,.08);
+    border: 1px solid rgba(255,200,80,.35);
+}
+
 /* ---------- actions ---------- */
 .vehicle-actions { display: flex; gap: 10px; }
 .action-btn {
@@ -194,9 +228,10 @@
 .action-btn.whatsapp { flex: 2; background: #25D366; color: #052e16; }
 .action-btn.call { border: 1px solid var(--primary-color); color: var(--primary-color); }
 
-/* ---------- empty state ---------- */
+/* ---------- empty state and load more ---------- */
 .empty-state { grid-column: 1 / -1; width: 100%; text-align: center; padding: 2rem 1rem; }
 .empty-state p { color: rgba(255,255,255,.7); margin-bottom: 1rem; }
+.load-more-wrap { grid-column: 1 / -1; text-align: center; padding: 1rem 0 2rem; }
 
 /* ---------- zoom ---------- */
 .zoom-close, .zoom-nav {
@@ -215,41 +250,7 @@
 }
 
 /* ---------- performance ---------- */
-/* skip rendering cards that are far off-screen */
 .vehicle-card { content-visibility: auto; contain-intrinsic-size: auto 760px; }
-.load-more-wrap { grid-column: 1 / -1; text-align: center; padding: 1rem 0 2rem; }
-
-/* ---------- technical specs + notes ---------- */
-.price-note { flex-basis: 100%; font-size: .8rem; color: rgba(255,255,255,.7); }
-.tech-specs {
-    margin-bottom: 1.1rem;
-    border: 1px solid var(--glass-border);
-    border-radius: 12px;
-    background: var(--glass-bg);
-    overflow: hidden;
-}
-.tech-specs summary {
-    cursor: pointer; list-style: none;
-    padding: 10px 14px;
-    font-size: .78rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
-    color: var(--primary-color);
-    display: flex; justify-content: space-between; align-items: center;
-}
-.tech-specs summary::-webkit-details-marker { display: none; }
-.tech-specs summary::after { content: '+'; font-size: 1.2rem; line-height: 1; }
-.tech-specs[open] summary::after { content: '–'; }
-.tech-specs dl { margin: 0; padding: 0 14px 6px; }
-.tech-row {
-    display: flex; justify-content: space-between; gap: 12px;
-    padding: 8px 0; border-top: 1px solid var(--glass-border);
-    font-size: .85rem;
-}
-.tech-row dt { color: rgba(255,255,255,.6); }
-.tech-row dd { margin: 0; font-weight: 600; text-align: right; }
-.vehicle-note {
-    margin-bottom: 1rem; padding: 8px 12px; border-radius: 10px;
-    font-size: .8rem; background: rgba(255,200,80,.1); border: 1px solid rgba(255,200,80,.35);
-}
 
 /* ---------- responsive ---------- */
 @media (min-width: 480px) {
