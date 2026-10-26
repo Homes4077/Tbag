@@ -353,7 +353,7 @@
     "type": "Hatchback",
     "fuel": "Petrol",
     "used": true,
-    "price_ksh": "1,480,000",
+    "price_ksh": "1,480,000 ",
     "condition_type": "2 WD, Acceleration: 0–100kph/9.0s ,Fuel consumption: 5.8L/100Kms ,Engine code: PE-VPS , Engine oil capacity: 4.2L, Fuel tank Capacity: 51L, Transmission: Automatic, Tyre size: 205/60R16, Ground clearance: 6.1In...",
     "name": "MAZDA AXELA 2015 1496cc. KDK",
     "contact_phone": "+254 757 782887",
@@ -441,6 +441,7 @@
       "images/vehicle53.engine.jpg",
       "images/vehicle53-exterior-side2.jpg",
       "images/vehicle53-exterior-front.jpg",
+      "images/vehicle53-exterior-front.jpg",
       "images/vehicle53-exterior-side.jpg",
       "images/vehicle53-exterior-side1.jpg",
       "images/vehicle53-exterior-back.jpg",
@@ -517,6 +518,7 @@
       "images/vehicle50.engine.jpg",
       "images/vehicle50-exterior-side.jpg",
       "images/vehicle50-exterior-front.jpg",
+      "images/vehicle50-exterior-side.jpg",
       "images/vehicle50-plate.jpg"
     ]
   },
