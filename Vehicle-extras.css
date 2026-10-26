@@ -1,11 +1,11 @@
 /* =========================================================
-   TBAG — vehicle cards, specs, feature chips, toolbar, zoom
-   Load AFTER style.css:  <link rel="stylesheet" href="vehicle-extras.css">
+   TBAG: vehicle cards, specs, chips, toolbar, zoom
+   Load AFTER style.css
    ========================================================= */
 
 [hidden] { display: none !important; }
 
-/* ---------- toolbar (search + sort) ---------- */
+/* ---------- toolbar ---------- */
 .vehicle-toolbar {
     display: flex;
     flex-wrap: wrap;
@@ -19,7 +19,7 @@
     flex: 1 1 200px;
     min-height: 44px;
     padding: 0 14px;
-    border-radius: 12px;
+    border-radius: 2px;
     border: 1px solid var(--glass-border);
     background: var(--glass-bg);
     color: var(--text-light);
@@ -29,16 +29,23 @@
 .vehicle-toolbar select option { color: #111; }
 .vehicle-toolbar input::placeholder { color: rgba(255,255,255,.5); }
 .vehicle-toolbar input:focus,
-.vehicle-toolbar select:focus {
+.vehicle-toolbar select:focus,
+.filter-btn:focus-visible,
+.feature-toggle:focus-visible,
+.gallery-arrow:focus-visible,
+.dot-btn:focus-visible,
+.action-btn:focus-visible {
     outline: 2px solid var(--primary-color);
-    outline-offset: 1px;
+    outline-offset: 2px;
 }
+
 #results-count {
     text-align: center;
     margin: 0 0 1rem;
     font-size: .85rem;
     color: rgba(255,255,255,.6);
 }
+
 .filter-sep {
     width: 1px;
     align-self: stretch;
@@ -47,8 +54,8 @@
 }
 .filter-count {
     margin-left: 6px;
-    padding: 1px 7px;
-    border-radius: 999px;
+    padding: 1px 6px;
+    border-radius: 2px;
     font-size: .7rem;
     background: rgba(255,255,255,.14);
 }
@@ -58,23 +65,22 @@
 .vehicle-gallery { position: relative; overflow: hidden; }
 .photo-count {
     position: absolute; top: 10px; right: 10px; z-index: 10;
-    padding: 4px 10px; border-radius: 999px;
+    padding: 4px 8px; border-radius: 2px;
     font-size: .72rem; font-weight: 600;
-    background: rgba(0,0,0,.55);
-    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    background: rgba(0,0,0,.6);
 }
 .gallery-arrow {
     position: absolute; top: 50%; z-index: 10;
     transform: translateY(-50%);
     width: 36px; height: 36px; padding: 0;
-    border: 0; border-radius: 50%;
-    font-size: 1.5rem; line-height: 1;
-    color: #fff; background: rgba(0,0,0,.45);
+    border: 0; border-radius: 2px;
+    font-size: 1.3rem; line-height: 1;
+    color: #fff; background: rgba(0,0,0,.5);
     cursor: pointer;
 }
 .gallery-arrow.prev { left: 8px; }
 .gallery-arrow.next { right: 8px; }
-.gallery-arrow:hover { background: rgba(0,0,0,.7); }
+.gallery-arrow:hover { background: rgba(0,0,0,.75); }
 .image-nav {
     position: absolute; bottom: 10px; left: 0; right: 0; z-index: 10;
     display: flex; justify-content: center; gap: 6px;
@@ -83,12 +89,11 @@
 .dot-btn {
     pointer-events: auto;
     width: 8px; height: 8px; padding: 0;
-    border: 0; border-radius: 999px;
+    border: 0; border-radius: 0;
     background: rgba(255,255,255,.45);
     cursor: pointer;
-    transition: width .25s, background .25s;
 }
-.dot-btn.active { width: 20px; background: var(--primary-color); }
+.dot-btn.active { width: 18px; background: var(--primary-color); }
 .vehicle-images img { cursor: zoom-in; }
 .vehicle-card.is-sold .vehicle-images img { filter: grayscale(.85) brightness(.6); }
 
@@ -102,12 +107,18 @@
     font-size: 1.55rem; font-weight: 700;
     color: var(--primary-color);
 }
-.pill-negotiable {
-    padding: 3px 10px; border-radius: 999px;
+.tag-negotiable {
+    padding: 3px 8px; border-radius: 2px;
     font-size: .72rem; font-weight: 700;
     letter-spacing: .03em; text-transform: uppercase;
     color: var(--secondary-color);
     border: 1px solid var(--secondary-color);
+}
+.price-note { flex-basis: 100%; font-size: .8rem; color: rgba(255,255,255,.7); }
+.sold-label {
+    display: inline-block; padding: 4px 10px;
+    font-size: .8rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+    color: #fff; border: 1px solid rgba(255,255,255,.5);
 }
 
 /* ---------- spec tiles ---------- */
@@ -115,23 +126,21 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 8px;
-    margin-bottom: 1rem;
+    margin: 0 0 1rem;
 }
 .spec {
-    display: flex; align-items: center; gap: 10px;
     padding: 9px 11px;
-    border-radius: 12px;
+    border-radius: 2px;
     border: 1px solid var(--glass-border);
     background: var(--glass-bg);
     min-width: 0;
 }
-.spec-icon { font-size: 1.15rem; flex: none; }
-.spec-text { display: flex; flex-direction: column; min-width: 0; }
 .spec-label {
     font-size: .62rem; letter-spacing: .08em; text-transform: uppercase;
     color: rgba(255,255,255,.5);
 }
 .spec-value {
+    margin: 2px 0 0;
     font-size: .88rem; font-weight: 600; color: #fff;
     white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
@@ -147,99 +156,37 @@
 }
 .feature-title::after {
     content: ''; flex: 1; height: 1px;
-    background: linear-gradient(90deg, var(--glass-border), transparent);
+    background: var(--glass-border);
 }
-.feature-title .feature-total {
-    order: 2; padding: 1px 8px; border-radius: 999px;
+.feature-total {
+    padding: 1px 6px; border-radius: 2px;
     background: rgba(195,176,145,.2); color: var(--primary-color);
 }
-.feature-list { display: flex; flex-wrap: wrap; gap: 8px; }
+.feature-list { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; margin: 0; padding: 0; }
 .feature-chip {
-    display: inline-flex; align-items: center; gap: 7px;
-    padding: 6px 12px;
-    border-radius: 999px;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 2px;
     border: 1px solid var(--glass-border);
     background: var(--glass-bg);
     font-size: .8rem; line-height: 1.2;
     color: #fff;
 }
-.feature-chip .ficon { font-size: .95rem; }
 .feature-toggle {
-    margin-top: 8px; padding: 5px 14px;
-    border-radius: 999px;
+    margin-top: 8px; padding: 5px 12px;
+    border-radius: 2px;
     border: 1px dashed var(--primary-color);
     background: transparent; color: var(--primary-color);
     font: inherit; font-size: .78rem; font-weight: 600;
     cursor: pointer;
 }
 .feature-toggle:hover { background: rgba(195,176,145,.12); }
-.feature-empty { font-size: .8rem; color: rgba(255,255,255,.5); }
 
-/* ---------- actions ---------- */
-.vehicle-actions { display: flex; gap: 10px; }
-.action-btn {
-    flex: 1; display: flex; align-items: center; justify-content: center;
-    min-height: 46px; padding: 0 14px;
-    border-radius: 12px;
-    font-weight: 700; text-decoration: none;
-    transition: transform .15s, filter .15s;
-}
-.action-btn:hover { transform: translateY(-1px); filter: brightness(1.1); }
-.action-btn.whatsapp { flex: 2; background: #25D366; color: #052e16; }
-.action-btn.call { border: 1px solid var(--primary-color); color: var(--primary-color); }
-
-/* ---------- empty / error ---------- */
-.empty-state { grid-column: 1 / -1; width: 100%; text-align: center; padding: 2rem 1rem; }
-.empty-state p { color: rgba(255,255,255,.7); margin-bottom: 1rem; }
-
-/* ---------- floating WhatsApp ---------- */
-.wa-float {
-    position: fixed; z-index: 9000;
-    right: 16px; bottom: calc(16px + env(safe-area-inset-bottom, 0px));
-    width: 56px; height: 56px; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    background: #25D366; color: #fff;
-    box-shadow: 0 8px 24px rgba(0,0,0,.45);
-}
-.wa-float svg { width: 30px; height: 30px; fill: currentColor; }
-
-/* ---------- zoom controls ---------- */
-.zoom-close, .zoom-nav {
-    position: fixed; z-index: 100000;
-    border: 0; border-radius: 50%;
-    background: rgba(255,255,255,.14); color: #fff;
-    cursor: pointer;
-}
-.zoom-close { top: 14px; right: 14px; width: 44px; height: 44px; font-size: 1.8rem; line-height: 1; }
-.zoom-nav { top: 50%; transform: translateY(-50%); width: 44px; height: 44px; font-size: 1.8rem; line-height: 1; }
-.zoom-prev { left: 10px; }
-.zoom-next { right: 10px; }
-.zoom-counter {
-    position: fixed; bottom: 18px; left: 50%; transform: translateX(-50%);
-    z-index: 100000; font-size: .85rem; color: rgba(255,255,255,.8);
-}
-
-/* ---------- bigger screens ---------- */
-@media (min-width: 480px) {
-    .spec-grid { grid-template-columns: repeat(3, 1fr); }
-}
-
-/* odd spec tile on the 2-column mobile grid fills the row */
-@media (max-width: 479px) {
-    .spec:last-child:nth-child(odd) { grid-column: 1 / -1; }
-}
-
-/* ---------- performance ---------- */
-/* skip rendering cards that are far off-screen */
-.vehicle-card { content-visibility: auto; contain-intrinsic-size: auto 760px; }
-.load-more-wrap { grid-column: 1 / -1; text-align: center; padding: 1rem 0 2rem; }
-
-/* ---------- technical specs + notes ---------- */
-.price-note { flex-basis: 100%; font-size: .8rem; color: rgba(255,255,255,.7); }
+/* ---------- technical specs ---------- */
 .tech-specs {
     margin-bottom: 1.1rem;
     border: 1px solid var(--glass-border);
-    border-radius: 12px;
+    border-radius: 2px;
     background: var(--glass-bg);
     overflow: hidden;
 }
@@ -252,7 +199,7 @@
 }
 .tech-specs summary::-webkit-details-marker { display: none; }
 .tech-specs summary::after { content: '+'; font-size: 1.2rem; line-height: 1; }
-.tech-specs[open] summary::after { content: '–'; }
+.tech-specs[open] summary::after { content: '-'; }
 .tech-specs dl { margin: 0; padding: 0 14px 6px; }
 .tech-row {
     display: flex; justify-content: space-between; gap: 12px;
@@ -261,7 +208,76 @@
 }
 .tech-row dt { color: rgba(255,255,255,.6); }
 .tech-row dd { margin: 0; font-weight: 600; text-align: right; }
+
 .vehicle-note {
-    margin-bottom: 1rem; padding: 8px 12px; border-radius: 10px;
-    font-size: .8rem; background: rgba(255,200,80,.1); border: 1px solid rgba(255,200,80,.35);
+    margin-bottom: 1rem; padding: 8px 12px; border-radius: 2px;
+    font-size: .8rem; background: rgba(255,200,80,.08);
+    border: 1px solid rgba(255,200,80,.35);
+}
+
+/* ---------- actions ---------- */
+.vehicle-actions { display: flex; gap: 10px; }
+.action-btn {
+    flex: 1; display: flex; align-items: center; justify-content: center;
+    min-height: 46px; padding: 0 14px;
+    border-radius: 2px;
+    font-weight: 700; text-decoration: none;
+    transition: filter .15s;
+}
+.action-btn:hover { filter: brightness(1.1); }
+.action-btn.whatsapp { flex: 2; background: #25D366; color: #052e16; }
+.action-btn.call { border: 1px solid var(--primary-color); color: var(--primary-color); }
+
+/* ---------- empty state and load more ---------- */
+.empty-state { grid-column: 1 / -1; width: 100%; text-align: center; padding: 2rem 1rem; }
+.empty-state p { color: rgba(255,255,255,.7); margin-bottom: 1rem; }
+.load-more-wrap { grid-column: 1 / -1; text-align: center; padding: 1rem 0 2rem; }
+
+/* ---------- zoom ---------- */
+.zoom-close, .zoom-nav {
+    position: fixed; z-index: 100000;
+    border: 0; border-radius: 2px;
+    background: rgba(255,255,255,.14); color: #fff;
+    cursor: pointer;
+}
+.zoom-close { top: 14px; right: 14px; padding: 8px 12px; font-size: .9rem; }
+.zoom-nav { top: 50%; transform: translateY(-50%); width: 44px; height: 44px; font-size: 1.6rem; line-height: 1; }
+.zoom-prev { left: 10px; }
+.zoom-next { right: 10px; }
+.zoom-counter {
+    position: fixed; bottom: 18px; left: 50%; transform: translateX(-50%);
+    z-index: 100000; font-size: .85rem; color: rgba(255,255,255,.8);
+}
+
+/* ---------- performance ---------- */
+.vehicle-card { content-visibility: auto; contain-intrinsic-size: auto 760px; }
+
+/* ---------- responsive ---------- */
+@media (min-width: 480px) {
+    .spec-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 479px) {
+    .spec:last-child:nth-child(odd) { grid-column: 1 / -1; }
+}
+
+/* ---------- floating WhatsApp button ---------- */
+.wa-float {
+    position: fixed;
+    z-index: 9000;
+    right: 16px;
+    bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #25D366;
+    color: #fff;
+    border-radius: 2px;
+    box-shadow: 0 4px 14px rgba(0,0,0,.45);
+}
+.wa-float svg {
+    width: 30px;
+    height: 30px;
+    fill: currentColor;
 }

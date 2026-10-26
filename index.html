@@ -24,11 +24,11 @@
         content="TBAG Hybrid Motors Specialist"
     >
 
-    <link
-        rel="icon"
-        type="image/png"
-        href="images/logo.png"
-    >
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
 
     <link
         rel="stylesheet"
@@ -122,7 +122,7 @@
     <div class="stat">
 
         <strong id="total-count">
-            —
+            ...
         </strong>
 
         <span>
@@ -135,7 +135,7 @@
     <div class="stat">
 
         <strong id="available-count">
-            —
+            ...
         </strong>
 
         <span>
@@ -148,7 +148,7 @@
     <div class="stat">
 
         <strong id="sold-count">
-            —
+            ...
         </strong>
 
         <span>
@@ -172,24 +172,25 @@
     class="hero"
 >
 
-    <h2>
-        Drive Yourself Today On Us.
-    </h2>
+    <div class="hero-panel">
 
+        <h2>
+            Hybrid cars for sale in Nyeri
+        </h2>
 
-    <p>
-        Discover a wide range of new and modified hybrid cars.
-        Trade-ins are acceptable. We also provide professional
-        hybrid battery diagnostics and replacement services.
-    </p>
+        <p>
+            Used hybrid cars with clear documents, trade-ins accepted,
+            and professional hybrid battery diagnostics and replacement.
+        </p>
 
+        <a
+            href="#vehicles"
+            class="button"
+        >
+            View Our Cars
+        </a>
 
-    <a
-        href="#vehicles"
-        class="button"
-    >
-        View Our Cars
-    </a>
+    </div>
 
 </section>
 
@@ -234,19 +235,19 @@
             <ul class="service-list">
 
                 <li>
-                    ✅ Fair Pricing
+                    Fair Pricing
                 </li>
 
                 <li>
-                    ✅ Expert Diagnostic Testing
+                    Expert Diagnostic Testing
                 </li>
 
                 <li>
-                    ✅ High-Quality Battery Modules
+                    High-Quality Battery Modules
                 </li>
 
                 <li>
-                    ✅ Fast Professional Service
+                    Fast Professional Service
                 </li>
 
             </ul>
@@ -285,7 +286,7 @@
         <input
             id="vehicle-search"
             type="search"
-            placeholder="Search make, model or feature…"
+            placeholder="Search make, model or feature..."
             aria-label="Search vehicles"
         >
 
@@ -317,12 +318,6 @@
 
     <p id="results-count" aria-live="polite"></p>
 
-
-    <!--
-        JAVASCRIPT LOADS VEHICLES HERE.
-        YOUR EXISTING script.js CAN CONTINUE
-        USING THIS SAME ID.
-    -->
 
     <div
         id="vehicle-cards-container"
@@ -521,7 +516,7 @@
      JAVASCRIPT
      ====================================================== -->
 
-<script src="script.js"></script>
+<script src="script.js" defer></script>
 
 
 </body>

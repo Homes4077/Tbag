@@ -1,23 +1,31 @@
 /* =========================================================
-   TBAG HYBRID MOTORS SPECIALIST — inventory script
-   Loads data/vehicles.json, renders cards (gallery, specs,
-   feature chips), filters/sorts/searches, live stats, zoom.
+   TBAG HYBRID MOTORS SPECIALIST: inventory script
+   Loads data/vehicles.json, renders cards, filters, search,
+   sort, gallery, technical specs and zoom.
    ========================================================= */
 
 const DATA_URL = 'data/vehicles.json';
+const PAGE_SIZE = 12;
+const BLANK = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==';
 const PLACEHOLDER =
   'data:image/svg+xml;utf8,' +
   encodeURIComponent(
     '<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500"><rect width="100%" height="100%" fill="#14141a"/><text x="50%" y="50%" fill="#777" font-family="sans-serif" font-size="28" text-anchor="middle">Photo unavailable</text></svg>'
   );
 
-const BLANK = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==';
-const PAGE_SIZE = 12;
-const state = { limit: PAGE_SIZE, all: [], status: 'available', fuel: 'all', query: '', sort: 'default' };
+const state = {
+  all: [],
+  status: 'available',
+  fuel: 'all',
+  query: '',
+  sort: 'default',
+  limit: PAGE_SIZE,
+};
+
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const scrollBehavior = reduceMotion ? 'auto' : 'smooth';
 
-/* ---------- tiny DOM helper (no innerHTML => no injection) ---------- */
+/* ---------- DOM helper (no innerHTML, so no injection) ---------- */
 function el(tag, props = {}, ...kids) {
   const node = document.createElement(tag);
   for (const [k, v] of Object.entries(props)) {
@@ -30,56 +38,33 @@ function el(tag, props = {}, ...kids) {
   return node;
 }
 
-/* ---------- formatting helpers ---------- */
+/* ---------- formatting ---------- */
 const money = n => 'KES ' + Number(n).toLocaleString('en-KE');
 const isSold = v => v.status === 'sold';
 const fuelOf = v => (v.fuel || 'Petrol').toLowerCase();
 
-/* ---------- feature icons ---------- */
-const FEATURE_ICONS = [
-  [/document|registration/i, '📄'],
-  [/accident/i, '🛡️'],
-  [/paint/i, '🎨'],
-  [/tyre|tire/i, '🛞'],
-  [/rim/i, '💿'],
-  [/camera/i, '📷'],
-  [/music|sound|audio/i, '🔊'],
-  [/fog|light/i, '💡'],
-  [/suspension/i, '🔧'],
-  [/wood|trim/i, '🪵'],
-  [/seat/i, '💺'],
-  [/push to start|key/i, '🔑'],
-  [/turbo|engine|valve/i, '🏎️'],
-  [/maintain|clean|immaculate/i, '✨'],
-  [/drive/i, '🚗'],
-  [/accessor/i, '🎁'],
-];
-const featureIcon = text => (FEATURE_ICONS.find(([re]) => re.test(text)) || [null, '✔️'])[1];
-
-/* ---------- spec tiles ---------- */
+/* ---------- spec tiles (text labels) ---------- */
 function specsFor(v) {
   const rows = [
-    ['📅', 'Year', v.year],
-    ['🔧', 'Engine', v.engine_cc && v.engine_cc.toLocaleString('en-KE') + ' cc'],
-    ['🛣️', 'Mileage', v.mileage_km && v.mileage_km.toLocaleString('en-KE') + ' km'],
-    ['⚙️', 'Gearbox', v.transmission],
-    ['🛞', 'Drive', v.drive],
-    ['💺', 'Seats', v.seats && v.seats + ' seats'],
-    ['⛽', 'Fuel', v.fuel],
-    ['🚙', 'Body', v.body],
-    ['⭐', 'Condition', v.condition],
+    ['Year', v.year],
+    ['Engine', v.engine_cc && v.engine_cc.toLocaleString('en-KE') + ' cc'],
+    ['Mileage', v.mileage_km && v.mileage_km.toLocaleString('en-KE') + ' km'],
+    ['Gearbox', v.transmission],
+    ['Fuel', v.fuel],
+    ['Body', v.body],
+    ['Drive', v.drive],
+    ['Seats', v.seats && v.seats + ' seats'],
+    ['Condition', v.condition],
   ];
-  return rows.filter(r => r[2]);
+  return rows.filter(r => r[1]);
 }
 
 function buildSpecs(v) {
-  return el('div', { class: 'spec-grid' },
-    specsFor(v).map(([icon, label, value]) =>
+  return el('dl', { class: 'spec-grid' },
+    specsFor(v).map(([label, value]) =>
       el('div', { class: 'spec' },
-        el('span', { class: 'spec-icon', 'aria-hidden': 'true', text: icon }),
-        el('span', { class: 'spec-text' },
-          el('span', { class: 'spec-label', text: label }),
-          el('span', { class: 'spec-value', text: String(value) })))));
+        el('dt', { class: 'spec-label', text: label }),
+        el('dd', { class: 'spec-value', text: String(value) }))));
 }
 
 /* ---------- feature chips (first 4 visible, rest expandable) ---------- */
@@ -87,13 +72,10 @@ const FEATURES_VISIBLE = 4;
 
 function buildFeatures(v) {
   const feats = v.features || [];
-  if (!feats.length) {
-    return el('div', { class: 'feature-block feature-empty', text: 'Contact us for the full specification.' });
-  }
-  const list = el('div', { class: 'feature-list' });
+  if (!feats.length) return null;
+  const list = el('ul', { class: 'feature-list' });
   feats.forEach((f, i) => {
-    list.append(el('span', { class: 'feature-chip', hidden: i >= FEATURES_VISIBLE },
-      el('span', { class: 'ficon', 'aria-hidden': 'true', text: featureIcon(f) }), f));
+    list.append(el('li', { class: 'feature-chip', hidden: i >= FEATURES_VISIBLE, text: f }));
   });
   const block = el('div', { class: 'feature-block' },
     el('div', { class: 'feature-title' },
@@ -102,14 +84,16 @@ function buildFeatures(v) {
     list);
   if (feats.length > FEATURES_VISIBLE) {
     block.append(el('button', {
-      type: 'button', class: 'feature-toggle', 'data-more': feats.length - FEATURES_VISIBLE,
-      'aria-expanded': 'false', text: `+${feats.length - FEATURES_VISIBLE} more`,
+      type: 'button', class: 'feature-toggle',
+      'data-more': feats.length - FEATURES_VISIBLE,
+      'aria-expanded': 'false',
+      text: `Show ${feats.length - FEATURES_VISIBLE} more`,
     }));
   }
   return block;
 }
 
-/* ---------- technical specs (collapsible key/value list) ---------- */
+/* ---------- technical specs (collapsible) ---------- */
 function buildTech(v) {
   const entries = Object.entries(v.specs || {});
   if (!entries.length) return null;
@@ -119,18 +103,20 @@ function buildTech(v) {
       el('div', { class: 'tech-row' }, el('dt', { text: k }), el('dd', { text: String(val) })))));
 }
 
-/* ---------- gallery ---------- */
+/* ---------- gallery (card shows small thumbnail; zoom shows full photo) ---------- */
+const thumbOf = src => src.replace(/^images\//, 'thumbs/').replace(/\.[a-z]+$/i, '.webp');
+
 function buildGallery(v) {
   const imgs = v.images || [];
   const multi = imgs.length > 1;
   const track = el('div', { class: 'vehicle-images', 'data-vehicle-id': v.id, tabindex: '0',
     'aria-label': `${v.name} photos` },
     imgs.map((src, i) => el('img', {
-      // only photo 1 downloads up front; the rest wait for the first touch/hover
-      src: i === 0 ? src : BLANK,
-      'data-src': i === 0 ? null : src,
-      alt: `${v.name} – photo ${i + 1} of ${imgs.length}`, class: 'zoomable',
-      loading: 'lazy', decoding: 'async', 'data-index': i,
+      src: i === 0 ? thumbOf(src) : BLANK,
+      'data-src': i === 0 ? null : thumbOf(src),
+      'data-full': src,
+      alt: `${v.name}, photo ${i + 1} of ${imgs.length}`,
+      class: 'zoomable', loading: 'lazy', decoding: 'async', 'data-index': i,
     })));
   const gallery = el('div', { class: 'vehicle-gallery' },
     el('span', { class: `fuel-badge fuel-${fuelOf(v)}`, text: v.fuel }),
@@ -138,8 +124,8 @@ function buildGallery(v) {
     track);
   if (multi) {
     gallery.append(
-      el('button', { type: 'button', class: 'gallery-arrow prev', 'aria-label': 'Previous photo', text: '‹' }),
-      el('button', { type: 'button', class: 'gallery-arrow next', 'aria-label': 'Next photo', text: '›' }));
+      el('button', { type: 'button', class: 'gallery-arrow prev', 'aria-label': 'Previous photo', text: '<' }),
+      el('button', { type: 'button', class: 'gallery-arrow next', 'aria-label': 'Next photo', text: '>' }));
     if (imgs.length <= 8) {
       gallery.append(el('div', { class: 'image-nav' },
         imgs.map((_, i) => el('button', {
@@ -169,10 +155,10 @@ function buildActions(v) {
 function buildCard(v) {
   const sold = isSold(v);
   const priceBlock = sold
-    ? el('div', { class: 'sold-container' }, el('div', { class: 'sold-marquee', text: 'SOLD — UNIT UNAVAILABLE — SOLD' }))
+    ? el('div', { class: 'sold-container' }, el('div', { class: 'sold-label', text: 'Sold' }))
     : el('div', { class: 'vehicle-price' },
         el('span', { class: 'price-amount', text: v.price ? money(v.price) : 'Call for price' }),
-        v.negotiable && el('span', { class: 'pill-negotiable', text: 'Negotiable' }),
+        v.negotiable && el('span', { class: 'tag-negotiable', text: 'Negotiable' }),
         v.price_note && el('span', { class: 'price-note', text: v.price_note }));
 
   return el('article', { class: 'vehicle-card' + (sold ? ' is-sold' : ''), 'data-id': v.id },
@@ -183,7 +169,7 @@ function buildCard(v) {
       buildSpecs(v),
       buildFeatures(v),
       buildTech(v),
-      v.note && el('div', { class: 'vehicle-note', text: 'ℹ️ ' + v.note }),
+      v.note && el('p', { class: 'vehicle-note', text: v.note }),
       buildActions(v)));
 }
 
@@ -205,8 +191,12 @@ function visibleVehicles() {
   const idx = new Map(state.all.map((v, i) => [v.id, i]));
   list.sort((a, b) => {
     if (state.sort === 'price-asc') return price(a) - price(b) || idx.get(a.id) - idx.get(b.id);
-    if (state.sort === 'price-desc') return (price(b) === Infinity ? -1 : price(b)) - (price(a) === Infinity ? -1 : price(a));
-    return (isSold(a) - isSold(b)) || idx.get(a.id) - idx.get(b.id); // available first
+    if (state.sort === 'price-desc') {
+      const pa = price(a) === Infinity ? -1 : price(a);
+      const pb = price(b) === Infinity ? -1 : price(b);
+      return pb - pa || idx.get(a.id) - idx.get(b.id);
+    }
+    return (isSold(a) - isSold(b)) || idx.get(a.id) - idx.get(b.id);
   });
   return list;
 }
@@ -240,7 +230,10 @@ function render() {
     container.append(frag);
   }
   const count = document.getElementById('results-count');
-  if (count) count.textContent = `Showing ${Math.min(list.length, state.limit)} of ${list.length} vehicle${list.length === 1 ? '' : 's'}`;
+  if (count) {
+    const shown = Math.min(list.length, state.limit);
+    count.textContent = `Showing ${shown} of ${list.length} vehicle${list.length === 1 ? '' : 's'}`;
+  }
 }
 
 function updateStats() {
@@ -258,12 +251,9 @@ function updateFilterButtons() {
     const active = state[group] === value;
     btn.classList.toggle('active', active);
     btn.setAttribute('aria-pressed', active);
-    let n;
-    if (group === 'status') {
-      n = state.all.filter(v => value === 'all' || (value === 'sold') === isSold(v)).length;
-    } else {
-      n = state.all.filter(v => value === 'all' || fuelOf(v) === value).length;
-    }
+    const n = group === 'status'
+      ? state.all.filter(v => value === 'all' || (value === 'sold') === isSold(v)).length
+      : state.all.filter(v => value === 'all' || fuelOf(v) === value).length;
     let badge = btn.querySelector('.filter-count');
     if (!badge) { badge = el('span', { class: 'filter-count' }); btn.append(badge); }
     badge.textContent = n;
@@ -291,48 +281,57 @@ function setupControls() {
 
   const container = document.getElementById('vehicle-cards-container');
 
-  // one delegated click handler for the whole grid
   container.addEventListener('click', e => {
     const t = e.target;
     if (t.closest('#reset-filters')) {
       Object.assign(state, { status: 'all', fuel: 'all', query: '', sort: 'default' });
       if (search) search.value = '';
       if (sort) sort.value = 'default';
-      updateFilterButtons(); resetAndRender(); return;
+      updateFilterButtons();
+      resetAndRender();
+      return;
     }
     if (t.closest('#load-more')) { state.limit += PAGE_SIZE; render(); return; }
+
     const toggle = t.closest('.feature-toggle');
     if (toggle) {
       const block = toggle.closest('.feature-block');
       const open = toggle.getAttribute('aria-expanded') !== 'true';
       block.querySelectorAll('.feature-chip').forEach((c, i) => { c.hidden = !open && i >= FEATURES_VISIBLE; });
       toggle.setAttribute('aria-expanded', open);
-      toggle.textContent = open ? 'Show less' : `+${toggle.dataset.more} more`;
+      toggle.textContent = open ? 'Show less' : `Show ${toggle.dataset.more} more`;
       return;
     }
+
     const gallery = t.closest('.vehicle-gallery');
     if (!gallery) return;
     const track = gallery.querySelector('.vehicle-images');
     const w = track.clientWidth;
     const current = Math.round(track.scrollLeft / w);
+
     if (t.closest('.gallery-arrow')) {
+      hydrate(track);
       const dir = t.closest('.gallery-arrow').classList.contains('next') ? 1 : -1;
-      const last = track.children.length - 1;
-      const next = Math.min(last, Math.max(0, current + dir));
+      const next = Math.min(track.children.length - 1, Math.max(0, current + dir));
       track.scrollTo({ left: next * w, behavior: scrollBehavior });
     } else if (t.closest('.dot-btn')) {
+      hydrate(track);
       track.scrollTo({ left: Number(t.closest('.dot-btn').dataset.index) * w, behavior: scrollBehavior });
     } else if (t.matches('img.zoomable')) {
       hydrate(track);
-      openZoom([...track.children].map(i => i.getAttribute('src')), Number(t.dataset.index));
+      openZoom([...track.children].map(i => i.dataset.full), Number(t.dataset.index));
     }
   });
 
-  // first touch / hover / focus on a gallery loads that card's remaining photos
-  const wake = e => { const g = e.target.closest && e.target.closest('.vehicle-gallery'); if (g) hydrate(g.querySelector('.vehicle-images')); };
-  ['pointerover', 'touchstart', 'focusin'].forEach(ev => container.addEventListener(ev, wake, { passive: true }));
+  // loads the other photos on first touch, hover or focus
+  const wake = e => {
+    const g = e.target.closest && e.target.closest('.vehicle-gallery');
+    if (g) hydrate(g.querySelector('.vehicle-images'));
+  };
+  ['pointerover', 'touchstart', 'focusin'].forEach(ev =>
+    container.addEventListener(ev, wake, { passive: true }));
 
-  // scroll doesn't bubble -> capture; keep counter + dots in sync
+  // keep the photo counter and dots in sync while scrolling
   let raf;
   container.addEventListener('scroll', e => {
     const track = e.target;
@@ -347,24 +346,24 @@ function setupControls() {
     });
   }, true);
 
-  // broken image -> placeholder
   container.addEventListener('error', e => {
     if (e.target.tagName === 'IMG' && e.target.src !== PLACEHOLDER) e.target.src = PLACEHOLDER;
   }, true);
 }
 
-/* ---------- zoom overlay (with prev/next, Esc, arrows) ---------- */
+/* ---------- zoom overlay ---------- */
 const zoom = { imgs: [], i: 0 };
 
 function openZoom(imgs, i) {
   const overlay = document.getElementById('image-zoom-overlay');
   if (!overlay) return;
-  zoom.imgs = imgs; zoom.i = i;
+  zoom.imgs = imgs;
+  zoom.i = i;
   if (!overlay.querySelector('.zoom-close')) {
     overlay.append(
-      el('button', { type: 'button', class: 'zoom-close', 'aria-label': 'Close', text: '×' }),
-      el('button', { type: 'button', class: 'zoom-nav zoom-prev', 'aria-label': 'Previous photo', text: '‹' }),
-      el('button', { type: 'button', class: 'zoom-nav zoom-next', 'aria-label': 'Next photo', text: '›' }),
+      el('button', { type: 'button', class: 'zoom-close', 'aria-label': 'Close', text: 'Close' }),
+      el('button', { type: 'button', class: 'zoom-nav zoom-prev', 'aria-label': 'Previous photo', text: '<' }),
+      el('button', { type: 'button', class: 'zoom-nav zoom-next', 'aria-label': 'Next photo', text: '>' }),
       el('span', { class: 'zoom-counter' }));
   }
   showZoom();
@@ -401,7 +400,7 @@ function setupZoom() {
   overlay.addEventListener('click', e => {
     if (e.target.closest('.zoom-prev')) return stepZoom(-1);
     if (e.target.closest('.zoom-next')) return stepZoom(1);
-    closeZoom(); // image, background or ×
+    closeZoom();
   });
   document.addEventListener('keydown', e => {
     if (overlay.style.display !== 'flex') return;
@@ -425,7 +424,7 @@ async function loadVehicles() {
     console.error('Could not load vehicles:', err);
     container.replaceChildren(el('div', { class: 'empty-state' },
       el('p', { text: "We couldn't load the inventory. Please check your connection and try again." }),
-      el('button', { type: 'button', class: 'button', text: 'Try again', id: 'retry-load' })));
+      el('button', { type: 'button', class: 'button', id: 'retry-load', text: 'Try again' })));
     document.getElementById('retry-load').addEventListener('click', loadVehicles);
   }
 }
