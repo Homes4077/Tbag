@@ -1,29 +1,41 @@
-name: Convert vehicles
+name: Update Inventory & Thumbnails
 
 on:
   workflow_dispatch:
   push:
     paths:
       - 'vehicles.raw.json'
+      - 'images/**'
       - 'tools/convert_vehicles.py'
+      - 'tools/make_thumbs.py'
 
 permissions:
   contents: write
 
 jobs:
-  convert:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          pip install Pillow
+
       - name: Generate data/vehicles.json
         run: python tools/convert_vehicles.py vehicles.raw.json data/vehicles.json
-      - name: Commit the result
+
+      - name: Generate thumbnails
+        run: python tools/make_thumbs.py
+
+      - name: Commit and push changes
         run: |
           git config user.name "github-actions"
           git config user.email "actions@users.noreply.github.com"
-          git add data/vehicles.json
-          git commit -m "Regenerate vehicles.json" || echo "No changes"
+          git add data/vehicles.json thumbs/
+          git commit -m "Auto-regenerate vehicles.json and thumbnails" || echo "No changes"
           git push
