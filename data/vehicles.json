@@ -1,5 +1,33 @@
 [
   {
+    "id": "v0069",
+    "name": "Toyota Fielder 1500cc",
+    "make": "Toyota",
+    "model": "Fielder",
+    "body": "Station Wagon",
+    "fuel": "Hybrid",
+    "status": "available",
+    "price": 1650000,
+    "negotiable": true,
+    "condition": "Used",
+    "year": 2019,
+    "engine_cc": 1500,
+    "drive": "2WD",
+    "features": [
+      "Accident Free",
+      "Original Paint",
+      "Ready Documents"
+    ],
+    "images": [
+      "images/vehicle71-exterior-face.jpg",
+      "images/vehicle71-exterior-front.jpg",
+      "images/vehicle71-exterior-side.jpg",
+      "images/vehicle71-plate.jpg"
+    ],
+    "contact_phone": "+254 757 782887",
+    "contact_email": "tbagdealers@gmail.com"
+  },
+  {
     "id": "v0068",
     "name": "Toyota Fielder 1500cc",
     "make": "Toyota",
