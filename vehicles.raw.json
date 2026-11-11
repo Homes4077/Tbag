@@ -1,4 +1,24 @@
 [
+  
+  {
+    "id": "v0069",
+    "make": "TOYOTA",
+    "model": "FIELDER",
+    "type": "Hatchback",
+    "fuel": "Hybrid",
+    "used": true,
+    "price_ksh": "1,650,000 ,Negotiable",
+    "condition_type": "Accident Free, Original Paint, 2 WD ,  Ready Documents, Y.O.M 2019",
+    "name": "TOYOTA FIELDER 1500cc. KDW",
+    "contact_phone": "+254 757 782887",
+    "contact_email": "tbagdealers@gmail.com",
+    "images": [
+      "images/vehicle71-exterior-face.jpg",
+      "images/vehicle71-exterior-front.jpg",
+      "images/vehicle71-exterior-side.jpg",
+      "images/vehicle71-plate.jpg"
+    ]
+  },
   {
     "id": "v0068",
     "make": "TOYOTA",
